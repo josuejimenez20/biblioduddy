@@ -1,6 +1,7 @@
 const express = require('express');
+const fileUpload = require('express-fileupload');
 const cors = require('cors');
-const {bibliobuddyDBConnection} = require('../database/connectionBibliobuddy');
+const { bibliobuddyDBConnection } = require('../database/connectionBibliobuddy');
 
 class Server {
 
@@ -31,12 +32,12 @@ class Server {
         this.app.use(express.static("public"));
 
         // FileUpload Carga de archivos
-        // this.app.use(
-        //     fileUpload({
-        //         useTempFiles: true,
-        //         tempFileDir: "/tmp/",
-        //     })
-        // );
+        this.app.use(
+            fileUpload({
+                useTempFiles: true,
+                tempFileDir: "/tmp/",
+            })
+        );
     }
 
     routes() {
