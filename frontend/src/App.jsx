@@ -1,9 +1,10 @@
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import AppRouter from './routes/AppRouter';
-import MenuBar from './components/login/menuBar/MenuBar';
+import MenuBar from './components/menuBar/MenuBar';
 import { Provider } from 'react-redux';
 import { store } from './redux/store/store';
+import SideBar from './components/sidebar/SideBar';
 
 function App() {
 
@@ -14,9 +15,9 @@ function App() {
         <Container maxWidth='xl' sx={{ bgcolor: 'red' }}>
           <Grid container spacing={2}>
             <Grid xs={2}>
-              <h2>Barra</h2>
+              <SideBar />
             </Grid>
-            <Grid xs={9}>
+            <Grid xs={10}>
               <AppRouter />
             </Grid>
           </Grid>

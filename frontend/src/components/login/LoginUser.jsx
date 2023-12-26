@@ -7,6 +7,7 @@ import {
     Typography, Link
 } from '@mui/material';
 import { LoginUser as LoginUserAction } from '../../redux/actions/LoginUser';
+import { createNewData } from '../../helpers/localstorage/createNewData';
 
 export default function LoginUser() {
 
@@ -18,6 +19,7 @@ export default function LoginUser() {
     useEffect(() => {
         if (success === true) {
             navigate('/Login/Register')
+            createNewData('DLQOEJ', 'FSDJFSD3382FJ');
         }
     }, [success])
 
