@@ -10,7 +10,7 @@ class Server {
         this.port = process.env.PORT || 3000;
         this.principalPath = "/api/v1"
         this.corsOptions = {
-            origin: "",
+            origin: "http://localhost:5173",
             optionsSuccessStatus: 200
         }
 

@@ -5,14 +5,14 @@ import {
     fetchLoginFailure
 } from "../../redux/slices/index";
 
-// Function for get information of one product
-
 export const LoginUser = (userData) => async (dispatch) => {
 
     try {
         dispatch(fetchLogin());
-        // const { data } = await axios.get(`http://localhost:3001/api/v1/`);
-        dispatch(fetchLoginSuccess({}));
+        const response = await axios.post(`http://localhost:3000/api/v1/users/login`, userData);
+        if (response.status === 200)
+            return dispatch(fetchLoginSuccess(true));
+        return fetchLoginFailure(response.message);
     } catch (error) {
         dispatch(fetchLoginFailure("Error Login"));
     }
