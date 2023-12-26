@@ -14,7 +14,6 @@ const createNewUserController = async (req, res) => {
         })
 
     } catch (error) {
-        console.log(error);
         return res.statur(500).json({
             message: "Error to create user"
         })
@@ -25,10 +24,8 @@ const loginUserController = async (req, res) => {
     try {
 
         const userData = req.body;
-        console.log(userData);
 
         const result = await loginUserService(userData);
-        console.log(result);
 
         if (result.length === 0)
             return res.status(401).json({
@@ -39,7 +36,6 @@ const loginUserController = async (req, res) => {
             data: result
         })
     } catch (error) {
-        console.log(error);
         return res.status(500).json({
             message: 'Error to login user'
         })

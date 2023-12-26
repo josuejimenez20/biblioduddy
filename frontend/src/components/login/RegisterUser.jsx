@@ -1,23 +1,23 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom'
 import {
     Container, Stack,
     TextField, Button,
     Typography, Link
 } from '@mui/material';
-import { LoginUser as LoginUserAction } from '../../redux/actions/LoginUser';
+import { RegisterUser as RegisterUserAction } from '../../redux/actions/RegisterUser';
 
-export default function LoginUser() {
+export default function RegisterUser() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const { error, success } = useSelector((state) => state.login.login);
+    const { error, success } = useSelector((state) => state.login.register);
 
     useEffect(() => {
         if (success === true) {
-            navigate('/Login/Register')
+            navigate('/Login')
         }
     }, [success])
 
@@ -25,8 +25,11 @@ export default function LoginUser() {
         const formData = {
             email: data.target.email.value,
             password: data.target.password.value,
+            name: data.target.name.value,
+            lastname: data.target.lastname.value,
+            second_lastname: data.target.second_lastname.value,
         }
-        dispatch(LoginUserAction(formData));
+        dispatch(RegisterUserAction(formData));
     }
 
     return (
@@ -35,7 +38,7 @@ export default function LoginUser() {
 
             <Typography variant="h4"
                 sx={{ color: 'skyblue', textAlign: 'center' }}>
-                Iniciar Sesion
+                Registro
             </Typography>
 
             <form id="login_form" className="form_class" method="submit"
@@ -47,14 +50,20 @@ export default function LoginUser() {
 
                     <TextField id='email' name='email' label='Email'
                         variant='standard' sx={{ marginBottom: 5, marginTop: 3 }} />
-                    <TextField id='password' name='password'
-                        label='Password' variant='standard' />
+                    <TextField id='password' name='password' label='Password'
+                        variant='standard' sx={{ marginBottom: 5 }} />
+                    <TextField id='name' name='name' label='Name'
+                        variant='standard' sx={{ marginBottom: 5 }} />
+                    <TextField id='lastname' lastname='lastname' label='Lastname'
+                        variant='standard' sx={{ marginBottom: 5 }} />
+                    <TextField id='second_lastname' name='second_lastname'
+                        label='Second Lastname' variant='standard' />
                     <Button type='submit' variant='outline'  // Añadí type='submit' al botón
                         sx={{ marginTop: 5, marginBottom: 3 }}>Enviar</Button>
                     <Link color="inherit" mb={3}
-                        onClick={() => {
-                            navigate('/Login/Register')
-                        }}>Registrarme</Link>
+                     onClick={() => {
+                        navigate('/Login')
+                    }}>Ya tengo una cuenta</Link>
                 </Stack>
             </form>
         </Container>
