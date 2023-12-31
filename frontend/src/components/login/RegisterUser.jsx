@@ -1,22 +1,26 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import {
     Container, Stack,
     TextField, Button,
     Typography, Link
 } from '@mui/material';
 import { RegisterUser as RegisterUserAction } from '../../redux/actions/RegisterUser';
+import { createNewData } from '../../helpers/localstorage/createNewData';
+
 
 export default function RegisterUser() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const { error, success } = useSelector((state) => state.login.register);
+    const { error, success, userData } = useSelector((state) => state.login.register);
 
     useEffect(() => {
         if (success === true) {
+            const userId = userData.data;
+            createNewData('USERID', userId);
             navigate('/Login')
         }
     }, [success])
@@ -61,9 +65,9 @@ export default function RegisterUser() {
                     <Button type='submit' variant='outline'  // Añadí type='submit' al botón
                         sx={{ marginTop: 5, marginBottom: 3 }}>Enviar</Button>
                     <Link color="inherit" mb={3}
-                     onClick={() => {
-                        navigate('/Login')
-                    }}>Ya tengo una cuenta</Link>
+                        onClick={() => {
+                            navigate('/Login')
+                        }}>Ya tengo una cuenta</Link>
                 </Stack>
             </form>
         </Container>

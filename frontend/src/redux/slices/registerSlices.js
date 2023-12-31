@@ -4,6 +4,7 @@ const initialState = {
     loading: null,
     error: null,
     success: null,
+    userData: {}
 };
 
 export const registerSlice = createSlice({
@@ -16,9 +17,11 @@ export const registerSlice = createSlice({
             state.success = null;
         },
         fetchRegisterSuccess: (state, action) => {
-            state.loading = null,
-                state.error = null,
-                state.success = action.payload;
+            state.loading = null;
+            state.error = null;
+            state.success = true;
+            state.userData = action.payload;
+
         },
         fetchRegisterFailure: (state, action) => {
             state.error = action.payload;

@@ -4,6 +4,7 @@ const initialState = {
     loading: false,
     error: null,
     success: null,
+    userData: {}
 };
 
 export const loginSlice = createSlice({
@@ -16,9 +17,10 @@ export const loginSlice = createSlice({
             state.success = null;
         },
         fetchLoginSuccess: (state, action) => {
-            state.loading = false,
-                state.error = false,
-                state.success = action.payload;
+            state.loading = false;
+            state.error = false;
+            state.success = true;
+            state.userData = action.payload;
         },
         fetchLoginFailure: (state, action) => {
             state.error = action.payload;

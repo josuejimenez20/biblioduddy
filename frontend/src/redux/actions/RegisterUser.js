@@ -11,14 +11,15 @@ export const RegisterUser = (userData) => async (dispatch) => {
 
     try {
         dispatch(fetchRegister());
-        const response = await axios.post(`http://localhost:3000/api/v1/users/new`, userData);
+        const { data, status } = await axios.post(`http://localhost:3000/api/v1/users/new`, userData);
 
-        if (response.status === 200)
-            return dispatch(fetchRegisterSuccess(true));
+        if (status === 200) {
+            return dispatch(fetchRegisterSuccess(data));
+        }
 
-        dispatch(fetchRegisterFailure("Error Register, please intent again"));
+        dispatch(fetchRegisterFailure(data.message));
 
     } catch (error) {
-        dispatch(fetchRegisterFailure("Error Register, please intent again"));
+        dispatch(fetchRegisterFailure(data.message));
     }
 }
