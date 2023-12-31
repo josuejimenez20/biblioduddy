@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
     Container, Stack,
     TextField, Button,
@@ -14,12 +14,13 @@ export default function LoginUser() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const { error, success } = useSelector((state) => state.login.login);
+    const { error, success, userData } = useSelector((state) => state.login.login);
 
     useEffect(() => {
         if (success === true) {
-            navigate('/Login/Register')
-            createNewData('DLQOEJ', 'FSDJFSD3382FJ');
+            const userId = userData.data[0].user_id
+            createNewData('USERID', userId);
+            navigate('/Login/Register');
         }
     }, [success])
 

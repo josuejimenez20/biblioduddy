@@ -18,11 +18,13 @@ const createNewUserService = async (userData) => {
     try {
 
         const userId = v4();
+        const listId = v4();
         userData.userId = userId;
+        userData.listId = listId;
 
-        const result = await createNewUserModel(userData)
+        const result = await createNewUserModel(userData);
 
-        return result;
+        return userId;
 
     } catch (error) {
         return error;

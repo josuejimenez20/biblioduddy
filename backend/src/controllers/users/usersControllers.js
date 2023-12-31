@@ -10,7 +10,8 @@ const createNewUserController = async (req, res) => {
         const result = await createNewUserService(userData);
 
         return res.status(200).json({
-            message: "User Created"
+            message: "User Created",
+            data: result
         })
 
     } catch (error) {
