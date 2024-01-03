@@ -5,7 +5,7 @@ const createNewCurrentlyBookModel = async (dataBook) => {
     const { userId, bookId, name,
         author, gender,
         publication_date, editorial,
-        imagine_path } = dataBook;
+        image_path } = dataBook;
 
     const query = `
 
@@ -13,7 +13,7 @@ const createNewCurrentlyBookModel = async (dataBook) => {
         book_id, fk_user_id, name, author, gender, 
         publication_date, editorial, image_path)
         VALUES ('${bookId}', '${userId}', '${name}', '${author}', 
-        '${gender}', '${publication_date}', '${editorial}', '${imagine_path}');
+        '${gender}', '${publication_date}', '${editorial}', '${image_path}');
         
         `;
 
