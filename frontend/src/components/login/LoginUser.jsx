@@ -20,7 +20,7 @@ export default function LoginUser() {
         if (success === true) {
             const userId = userData.data[0].user_id
             createNewData('USERID', userId);
-            navigate('/Login/Register');
+            navigate('/Home/Currently');
         }
     }, [success])
 

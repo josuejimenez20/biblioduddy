@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Typography, Button } from '@mui/material';
-import NewBookForm from './NewBookForm';
+import NewBookForm from '../NewBookForm';
 import Grid from '@mui/material/Unstable_Grid2';
-
+import { getLocalStorageData } from '../../../../helpers/localstorage/getData'
+import { addCurrentlyBook } from '../../../../redux/actions/currentlyBooks/addCurrentlyBook';
 
 export default function CurrentlyForm() {
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const { error, success, userData } =
+        useSelector((state) => state.currently.add);
+
+    useEffect(() => {
+        if (success === true)
+            navigate('/Home/Currently');
+    }, [success])
 
     const handleNewBook = ((data) => {
         const formData = {
@@ -18,7 +29,12 @@ export default function CurrentlyForm() {
             editorial: data.editorial.value,
             image_path: data.image_path.value,
         }
-        console.log(formData);
+
+        const userId = getLocalStorageData('USERID');
+
+        formData.userId = userId;
+
+        dispatch(addCurrentlyBook(formData));
 
     })
 

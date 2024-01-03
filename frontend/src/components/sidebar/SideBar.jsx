@@ -20,7 +20,7 @@ export default function SideBar() {
 
             <Button variant="contained" sx={{
                 bgcolor: 'black', width: '100%',
-                height: '7vh', mt: 5
+                height: '10vh', mt: 5
             }} onClick={() => {
                 navigate('/Home/Pending')
             }}>Libros pendientes por leer</Button>
@@ -34,7 +34,7 @@ export default function SideBar() {
 
             <Button variant="contained" sx={{
                 bgcolor: 'black', width: '100%',
-                height: '7vh', mt: 5
+                height: '10vh', mt: 5
             }} onClick={() => {
                 navigate('/Home/WishList')
             }}>Libros pendientes por comprar</Button>
