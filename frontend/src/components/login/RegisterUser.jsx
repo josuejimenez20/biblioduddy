@@ -21,7 +21,8 @@ export default function RegisterUser() {
         if (success === true) {
             const userId = userData.data;
             createNewData('USERID', userId);
-            navigate('/Home/Currently')
+            window.location.reload();
+            navigate('/');
         }
     }, [success])
 
