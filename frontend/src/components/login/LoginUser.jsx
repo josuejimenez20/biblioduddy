@@ -18,9 +18,10 @@ export default function LoginUser() {
 
     useEffect(() => {
         if (success === true) {
-            const userId = userData.data[0].user_id
+            const userId = userData.data[0].user_id;
             createNewData('USERID', userId);
-            navigate('/Home/Currently');
+            window.location.reload();
+            navigate('/');
         }
     }, [success])
 

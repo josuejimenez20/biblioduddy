@@ -1,3 +1,4 @@
+import React from 'react';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import AppRouter from './routes/AppRouter';
@@ -14,8 +15,8 @@ function App() {
         <MenuBar />
         <Container maxWidth='xl' sx={{ bgcolor: 'red' }}>
           <Grid container spacing={2}>
-            <Grid xs={2}>
-              <SideBar />
+            <Grid xs={2}>             
+                <SideBar />
             </Grid>
             <Grid xs={10}>
               <AppRouter />
