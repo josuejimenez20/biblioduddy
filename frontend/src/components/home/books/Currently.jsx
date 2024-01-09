@@ -8,6 +8,7 @@ import { getLocalStorageData } from '../../../helpers/localstorage/getData';
 import { getCurrentlyBooks } from '../../../redux/actions/currentlyBooks/getCurrentlyBooks';
 import { fillBookData } from '../../../redux/slices/currentlyBooks/editBookSlice';
 import { stateReset } from '../../../redux/slices/currentlyBooks/editBookSlice'
+import { deleteCurrentlyBook } from '../../../redux/actions/currentlyBooks/deleteCurrentlyBooks';
 
 export default function Currently() {
 
@@ -15,7 +16,7 @@ export default function Currently() {
   const dispatch = useDispatch();
   const userId = getLocalStorageData('USERID');
 
-  const { error, success, books } = useSelector((state) =>
+  const { error, success, books, loading } = useSelector((state) =>
     state.currently.get);
 
   const editBook = ((bookData) => {
@@ -24,7 +25,10 @@ export default function Currently() {
   })
 
   const deleteBook = ((bookId) => {
-    console.log(bookId);
+    dispatch(deleteCurrentlyBook(bookId));
+    setTimeout(() => {
+      dispatch(getCurrentlyBooks(userId));
+    }, 500);
   })
 
   useEffect(() => {
@@ -36,7 +40,8 @@ export default function Currently() {
     <>
       <Grid container spacing={2}>
         <Grid xs={10}>
-          <Typography variant="h2" mt={2} textAlign='center'>
+          <Typography variant="h2" mt={2} textAlign='center'
+          color='#376DCC'>
             Libros Actualmente Leyendo
           </Typography>
         </Grid>
@@ -53,26 +58,31 @@ export default function Currently() {
         </Grid>
       </Grid>
 
-      <Grid container spacing={2}>
-        {success === true ? (
-          books.map((element, index) => (
-            <Grid xs={4} mt={4} key={index}>
-              <BookCard
-                editFunction={editBook}
-                name={element.name}
-                author={element.author}
-                editorial={element.editorial}
-                gender={element.gender}
-                publication_date={element.publication_date.substring(0, 10)}
-                image_path={element.image_path}
-                bookId={element.book_id}
-              ></BookCard>
-            </Grid>
-          ))
-        ) : (
-          <></>
-        )}
-      </Grid>
+      {
+        loading !== true ?
+          <Grid container spacing={2}>
+            {success === true ? (
+              books.map((element, index) => (
+                <Grid xs={4} mt={4} key={index}>
+                  <BookCard
+                    editFunction={editBook}
+                    deleteFunction={deleteBook}
+                    name={element.name}
+                    author={element.author}
+                    editorial={element.editorial}
+                    gender={element.gender}
+                    publication_date={element.publication_date.substring(0, 10)}
+                    image_path={element.image_path}
+                    bookId={element.book_id}
+                  ></BookCard>
+                </Grid>
+              ))
+            ) : (
+              <></>
+            )}
+          </Grid>
+          : <></>
+      }
     </>
   );
 }

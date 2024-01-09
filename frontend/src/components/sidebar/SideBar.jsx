@@ -19,10 +19,13 @@ export default function SideBar() {
             {
                 userId ?
                     <Container maxWidth='xl'
-                        sx={{ bgcolor: 'white', height: '86vh' }} >
+                        sx={{
+                            bgcolor: '#2C3E5F', height: '86vh',
+                        }} >
                         <Button variant="contained" sx={{
                             bgcolor: 'black', width: '100%',
-                            height: '7vh', mt: 9
+                            height: '7vh', mt: 9,
+                            borderRadius: '10%'
                         }}
                             onClick={() => {
                                 navigate('/Home/Currently')
@@ -31,21 +34,24 @@ export default function SideBar() {
 
                         <Button variant="contained" sx={{
                             bgcolor: 'black', width: '100%',
-                            height: '10vh', mt: 5
+                            height: '10vh', mt: 5,
+                            borderRadius: '10%'
                         }} onClick={() => {
                             navigate('/Home/Pending')
                         }}>Libros pendientes por leer</Button>
 
                         <Button variant="contained" sx={{
                             bgcolor: 'black', width: '100%',
-                            height: '7vh', mt: 5
+                            height: '7vh', mt: 5,
+                            borderRadius: '10%'
                         }} onClick={() => {
                             navigate('/Home/History')
                         }}>Libros Leidos</Button>
 
                         <Button variant="contained" sx={{
                             bgcolor: 'black', width: '100%',
-                            height: '10vh', mt: 5
+                            height: '10vh', mt: 5,
+                            borderRadius: '10%'
                         }} onClick={() => {
                             navigate('/Home/WishList')
                         }}>Libros pendientes por comprar</Button>

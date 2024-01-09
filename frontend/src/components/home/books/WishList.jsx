@@ -8,6 +8,7 @@ import { getLocalStorageData } from '../../../helpers/localstorage/getData';
 import { getWishBooks } from '../../../redux/actions/wishBooks/getWishBooks';
 import { fillBookData } from '../../../redux/slices/currentlyBooks/editBookSlice';
 import { stateReset } from '../../../redux/slices/pendingBooks/editBookSlice'
+import { deleteWishBook } from '../../../redux/actions/wishBooks/deleteWishBook';
 
 export default function WishList() {
 
@@ -24,7 +25,10 @@ export default function WishList() {
   })
 
   const deleteBook = ((bookId) => {
-    console.log(bookId);
+    dispatch(deleteWishBook(bookId));
+    setTimeout(() => {
+      dispatch(getWishBooks(userId));
+    }, 500);
   })
 
   useEffect(() => {
@@ -36,7 +40,8 @@ export default function WishList() {
     <>
       <Grid container spacing={2}>
         <Grid xs={10}>
-          <Typography variant="h2" mt={2} textAlign='center'>
+          <Typography variant="h2" mt={2} textAlign='center'
+            color='#376DCC'>
             Libros Actualmente Leyendo
           </Typography>
         </Grid>
@@ -59,6 +64,7 @@ export default function WishList() {
             <Grid xs={4} mt={4} key={index}>
               <BookCard
                 editFunction={editBook}
+                deleteFunction={deleteBook}
                 name={element.name}
                 author={element.author}
                 editorial={element.editorial}

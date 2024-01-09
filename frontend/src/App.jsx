@@ -13,7 +13,7 @@ function App() {
     <>
       <Provider store={store}>
         <MenuBar />
-        <Container maxWidth='xl' sx={{ bgcolor: 'red' }}>
+        <Container maxWidth='xl' sx={{ bgcolor: '#11151C' }}>
           <Grid container spacing={2}>
             <Grid xs={2}>             
                 <SideBar />

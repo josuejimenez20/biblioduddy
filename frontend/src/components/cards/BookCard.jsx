@@ -6,6 +6,7 @@ import {
 
 export default function BookCard({
     editFunction,
+    deleteFunction,
     name,
     author,
     gender,
@@ -14,15 +15,16 @@ export default function BookCard({
     image_path,
     bookId }) {
     return (
-        <Card sx={{ minWidth: 275 }}>
+        <Card sx={{ minWidth: 275, backgroundColor: '#354056', color: 'white',
+            borderRadius: '7%' }}>
             <CardContent>
-                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                <Typography sx={{ fontSize: 14 }} color="#C0C8DA" gutterBottom>
                     {gender}
                 </Typography>
                 <Typography variant="h5" component="div">
                     {name}
                 </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                <Typography sx={{ mb: 1.5 }} color="#C0C8DA">
                     {author}
                 </Typography>
                 <Typography variant="body2">
@@ -44,7 +46,12 @@ export default function BookCard({
                             image_path: image_path,
                             bookId: bookId
                         }))}>Editar</Button>
-                <Button size="small">Eliminar </Button>
+                <Button size="small"
+                 onClick={(() =>
+                    deleteFunction({
+                        bookId: bookId
+                    }))}
+                >Eliminar </Button>
             </CardActions>
         </Card>
     );

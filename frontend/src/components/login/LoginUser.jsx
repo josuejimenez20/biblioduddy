@@ -35,10 +35,12 @@ export default function LoginUser() {
 
     return (
         <Container maxWidth='sm'
-            sx={{ bgcolor: '#1A3366' }}>
-
-            <Typography variant="h4"
-                sx={{ color: 'skyblue', textAlign: 'center' }}>
+            sx={{ bgcolor: '#2A3142', height: '80vh' }}>
+            <br />
+            <br />
+            <br />
+            <Typography variant="h3"
+                sx={{ color: '#376DCC', textAlign: 'center' }}>
                 Iniciar Sesion
             </Typography>
 

@@ -19,10 +19,15 @@ export default function NewBookForm({
                     handleSumbit(e.target);
                 }}
             >
-                <Grid container spacing={3}>
+                <Grid container spacing={3}
+                    sx={{
+                        backgroundColor: '#2A3142', padding: '2%',
+                        marginRight: '80px'
+                    }}>
                     <Grid item xs={6}>
                         <TextField id="name" name="name" fullWidth
-                            label="Nombre" variant="outlined" defaultValue={name} />
+                            label="Nombre" variant="outlined" defaultValue={name}
+                        />
                     </Grid>
                     <Grid item xs={6}>
                         <TextField id="author" name="author" fullWidth

@@ -41,7 +41,8 @@ export default function CurrentlyFormEdit() {
         <>
             <Grid container >
                 <Grid xs={11}>
-                    <Typography variant='h3' textAlign='center' mb={5} mt={3}>
+                    <Typography variant='h3' textAlign='center' mb={5} mt={3}
+                        color='#376DCC'>
                         EDITAR LIBRO {name}</Typography>
                 </Grid>
                 <Grid xs={1}>
@@ -52,16 +53,18 @@ export default function CurrentlyFormEdit() {
                             X </Typography> </Button>
                 </Grid>
             </Grid>
-            <NewBookForm
-                handleSumbit={handleNewBook}
-                name={name}
-                author={author}
-                editorial={editorial}
-                gender={gender}
-                image_path={image_path}
-                nameButton="Editar"
-                publication_date={publication_date}
-            />
+            <Grid xs={12} marginLeft={2}>
+                <NewBookForm
+                    handleSumbit={handleNewBook}
+                    name={name}
+                    author={author}
+                    editorial={editorial}
+                    gender={gender}
+                    image_path={image_path}
+                    nameButton="Editar"
+                    publication_date={publication_date}
+                />
+            </Grid>
         </>
     )
 }

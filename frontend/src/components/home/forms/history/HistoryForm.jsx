@@ -42,7 +42,8 @@ export default function HistoryForm() {
         <>
             <Grid container >
                 <Grid xs={11}>
-                    <Typography variant='h3' textAlign='center' mb={5} mt={3}>
+                    <Typography variant='h3' textAlign='center' mb={5} mt={3}
+                        color='#376DCC'>
                         NUEVO LIBRO LEYENDO ACTUALMENTE </Typography>
                 </Grid>
                 <Grid xs={1}>
@@ -53,7 +54,9 @@ export default function HistoryForm() {
                             X </Typography> </Button>
                 </Grid>
             </Grid>
-            <NewBookForm handleSumbit={handleNewBook} />
+            <Grid xs={12} marginLeft={2}>
+                <NewBookForm handleSumbit={handleNewBook} />
+            </Grid>
         </>
     )
 }
