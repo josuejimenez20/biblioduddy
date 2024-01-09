@@ -12,5 +12,5 @@ export * from './getBooksSlices';
 export const CurrentlyReducer = combineReducers({
     add: addBookSlice.reducer,
     get: getBooksSlice.reducer,
-    edit: editBookSlice.reducer
+    edit: editBookSlice.reducer,
 });

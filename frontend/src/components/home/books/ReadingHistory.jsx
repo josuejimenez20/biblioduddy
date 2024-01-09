@@ -8,6 +8,7 @@ import { getLocalStorageData } from '../../../helpers/localstorage/getData';
 import { getHistoryBooks } from '../../../redux/actions/historyBooks/getHistoryBooks';
 import { fillBookData } from '../../../redux/slices/historyBooks/editBookSlice';
 import { stateReset } from '../../../redux/slices/historyBooks/editBookSlice'
+import { deleteHistoryBook } from '../../../redux/actions/historyBooks/deleteHistoryBook';
 
 export default function ReadingHistory() {
 
@@ -24,7 +25,10 @@ export default function ReadingHistory() {
   })
 
   const deleteBook = ((bookId) => {
-    console.log(bookId);
+    dispatch(deleteHistoryBook(bookId));
+    setTimeout(() => {
+      dispatch(getHistoryBooks(userId));
+    }, 500);
   })
 
   useEffect(() => {
@@ -36,7 +40,8 @@ export default function ReadingHistory() {
     <>
       <Grid container spacing={2}>
         <Grid xs={10}>
-          <Typography variant="h2" mt={2} textAlign='center'>
+          <Typography variant="h2" mt={2} textAlign='center'
+            color='#376DCC'>
             Libros Actualmente Leyendo
           </Typography>
         </Grid>
@@ -59,6 +64,7 @@ export default function ReadingHistory() {
             <Grid xs={4} mt={4} key={index}>
               <BookCard
                 editFunction={editBook}
+                deleteFunction={deleteBook}
                 name={element.name}
                 author={element.author}
                 editorial={element.editorial}

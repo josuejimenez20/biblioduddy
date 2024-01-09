@@ -8,6 +8,7 @@ import { getLocalStorageData } from '../../../helpers/localstorage/getData';
 import { getPendingBooks } from '../../../redux/actions/pendingBooks/getPendingBooks';
 import { fillBookData } from '../../../redux/slices/currentlyBooks/editBookSlice';
 import { stateReset } from '../../../redux/slices/pendingBooks/editBookSlice'
+import { deletePendingBook } from '../../../redux/actions/pendingBooks/deletePending';
 
 export default function Pending() {
 
@@ -24,7 +25,10 @@ export default function Pending() {
   })
 
   const deleteBook = ((bookId) => {
-    console.log(bookId);
+    dispatch(deletePendingBook(bookId));
+    setTimeout(() => {
+      dispatch(getPendingBooks(userId));
+    }, 500);
   })
 
   useEffect(() => {
@@ -36,7 +40,8 @@ export default function Pending() {
     <>
       <Grid container spacing={2}>
         <Grid xs={10}>
-          <Typography variant="h2" mt={2} textAlign='center'>
+          <Typography variant="h2" mt={2} textAlign='center'
+            color='#376DCC'>
             Libros Actualmente Leyendo
           </Typography>
         </Grid>
@@ -59,6 +64,7 @@ export default function Pending() {
             <Grid xs={4} mt={4} key={index}>
               <BookCard
                 editFunction={editBook}
+                deleteFunction={deleteBook}
                 name={element.name}
                 author={element.author}
                 editorial={element.editorial}
