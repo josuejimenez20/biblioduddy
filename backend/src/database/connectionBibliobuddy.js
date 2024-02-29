@@ -1,11 +1,11 @@
 const { Client } = require('pg');
 
 const connectionBiblioBuddy = new Client({
-    user: "postgres",
-    host: "localhost",
-    database: "bibliobuddy",
-    password: "root",
-    port: "5432"
+    user: process.env.DATABASE_USER,
+    host: process.env.DATABASE_HOST,
+    database: process.env.DATABASE,
+    password: process.env.DATABASE_PASSWORD,
+    port: process.env.DATABASE_PORT
 })
 
 const bibliobuddyDBConnection = () => {

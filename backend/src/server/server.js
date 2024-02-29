@@ -1,6 +1,7 @@
 const express = require('express');
 const fileUpload = require('express-fileupload');
 const cors = require('cors');
+require('dotenv').config();
 const { bibliobuddyDBConnection } = require('../database/connectionBibliobuddy');
 
 class Server {
