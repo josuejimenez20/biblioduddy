@@ -8,6 +8,8 @@ import {
 } from '@mui/material';
 import { LoginUser as LoginUserAction } from '../../redux/actions/LoginUser';
 import { createNewData } from '../../helpers/localstorage/createNewData';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from '../themes/theme1'
 
 export default function LoginUser() {
 
@@ -34,14 +36,13 @@ export default function LoginUser() {
     }
 
     return (
-        <Container maxWidth='sm'
-            sx={{ bgcolor: '#2A3142', height: '80vh' }}>
+        <ThemeProvider theme={theme}>
+        <Container maxWidth='sm' className="container">
             <br />
             <br />
             <br />
-            <Typography variant="h3"
-                sx={{ color: '#376DCC', textAlign: 'center' }}>
-                Iniciar Sesion
+            <Typography variant="h3" className="title">
+                Iniciar Sesión
             </Typography>
 
             <form id="login_form" className="form_class" method="submit"
@@ -52,17 +53,17 @@ export default function LoginUser() {
                 <Stack mt={1}>
 
                     <TextField id='email' name='email' label='Email'
-                        variant='standard' sx={{ marginBottom: 5, marginTop: 3 }} />
+                        variant='standard' className="textField" />
                     <TextField id='password' name='password'
-                        label='Password' variant='standard' />
-                    <Button type='submit' variant='outline'  // Añadí type='submit' al botón
-                        sx={{ marginTop: 5, marginBottom: 3 }}>Enviar</Button>
-                    <Link color="inherit" mb={3}
+                        label='Password' variant='standard' type='password'/>
+                    <Button type='submit' variant='standard' className="button">Enviar</Button>
+                    <Link mb={3}
                         onClick={() => {
                             navigate('/Login/Register')
                         }}>Registrarme</Link>
                 </Stack>
             </form>
         </Container>
+        </ThemeProvider>
     )
 }
