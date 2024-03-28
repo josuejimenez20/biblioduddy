@@ -9,6 +9,7 @@ import { getWishBooks } from '../../../redux/actions/wishBooks/getWishBooks';
 import { fillBookData } from '../../../redux/slices/currentlyBooks/editBookSlice';
 import { stateReset } from '../../../redux/slices/pendingBooks/editBookSlice'
 import { deleteWishBook } from '../../../redux/actions/wishBooks/deleteWishBook';
+//import './WishListStyles.css';
 
 export default function WishList() {
 
