@@ -1,18 +1,16 @@
-/* Estilos para el contenedor principal */
-.container {
+.wishList_container {
     display: flex;
     flex-direction: column;
     align-items: center;
+
   }
   
-  /* Estilos para el título de la lista de deseos */
   .title {
     font-size: 24px;
-    color: #376DCC;
+    color: #ffffff;
     margin-top: 20px;
   }
   
-  /* Estilos para el botón de agregar */
   .addButton {
     background-color: #376DCC;
     color: white;
@@ -25,7 +23,6 @@
     background-color: #2a4c8f;
   }
   
-  /* Estilos para las tarjetas de libros */
   .bookCard {
     border: 1px solid #ccc;
     border-radius: 5px;
