@@ -4,6 +4,9 @@ import {
     Button, Typography
 } from '@mui/material';
 
+import { ThemeProvider } from '@mui/material/styles';
+import card from '../themes/card'
+
 export default function BookCard({
     editFunction,
     deleteFunction,
@@ -15,8 +18,8 @@ export default function BookCard({
     image_path,
     bookId }) {
     return (
-        <Card sx={{ minWidth: 275, backgroundColor: '#354056', color: 'white',
-            borderRadius: '7%' }}>
+        <ThemeProvider theme={card}>
+        <Card sx={{ minWidth: 275}}>
             <CardContent>
                 <Typography sx={{ fontSize: 14 }} color="#C0C8DA" gutterBottom>
                     {gender}
@@ -54,5 +57,6 @@ export default function BookCard({
                 >Eliminar </Button>
             </CardActions>
         </Card>
+        </ThemeProvider>
     );
 }
