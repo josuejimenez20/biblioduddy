@@ -34,7 +34,7 @@ const sideBar = createTheme({
                     fontFamily: '"Roboto Slab", serif', 
                     padding: '10px',
                     '&:hover': {
-                        backgroundColor: '#FF2D55', // Color de fondo para el hover
+                        backgroundColor: '#FF2D55',
                     },
                 },
             },
