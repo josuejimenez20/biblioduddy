@@ -24,8 +24,9 @@ export default function SideBar() {
                         }} >
                         <Button variant="contained" sx={{
                             bgcolor: 'black', width: '100%',
-                            height: '7vh', mt: 9,
-                            borderRadius: '10%'
+                            height: '5vh', mt: 9,
+                            borderRadius: '10%',
+                            fontSize: '0.8em'
                         }}
                             onClick={() => {
                                 navigate('/Home/Currently')
@@ -34,27 +35,47 @@ export default function SideBar() {
 
                         <Button variant="contained" sx={{
                             bgcolor: 'black', width: '100%',
-                            height: '10vh', mt: 5,
-                            borderRadius: '10%'
+                            height: '7vh', mt: 5,
+                            borderRadius: '10%',
+                            fontSize: '0.8em'
                         }} onClick={() => {
                             navigate('/Home/Pending')
                         }}>Libros pendientes por leer</Button>
 
                         <Button variant="contained" sx={{
                             bgcolor: 'black', width: '100%',
-                            height: '7vh', mt: 5,
-                            borderRadius: '10%'
+                            height: '5vh', mt: 5,
+                            borderRadius: '10%',
+                            fontSize: '0.8em'
                         }} onClick={() => {
                             navigate('/Home/History')
                         }}>Libros Leidos</Button>
 
                         <Button variant="contained" sx={{
                             bgcolor: 'black', width: '100%',
-                            height: '10vh', mt: 5,
+                            height: '7vh', mt: 5,
                             borderRadius: '10%'
                         }} onClick={() => {
                             navigate('/Home/WishList')
                         }}>Libros pendientes por comprar</Button>
+
+                        <Button variant="contained" sx={{
+                            bgcolor: 'black', width: '100%',
+                            height: '5vh', mt: 5,
+                            borderRadius: '10%',
+                            fontSize: '0.8em'
+                        }} onClick={() => {
+                            navigate('/Home/myposts')
+                        }}>MIS POSTS</Button>
+
+                        <Button variant="contained" sx={{
+                            bgcolor: 'black', width: '100%',
+                            height: '5vh', mt: 5,
+                            borderRadius: '10%',
+                            fontSize: '0.8em'
+                        }} onClick={() => {
+                            navigate('/Home/WishList')
+                        }}>EXPLOAR POSTS</Button>
 
                     </Container>
                     : <></>}

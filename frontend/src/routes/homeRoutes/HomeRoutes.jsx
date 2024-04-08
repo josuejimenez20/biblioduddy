@@ -13,6 +13,9 @@ import WishList from '../../components/home/books/WishList';
 import WishListFrom from '../../components/home/forms/wish/WishForm';
 import WishListEdit from '../../components/home/forms/wish/WishFormEdit';
 import Welcome from '../../components/home/Welcome';
+import MyPosts from '../../components/posts/MyPosts';
+import NePost from '../../components/posts/NewPost';
+import EditPost from '../../components/posts/EditPost';
 
 export default function HomeRoutes() {
     return (
@@ -32,6 +35,9 @@ export default function HomeRoutes() {
             <Route path='/Currently' element={<Currently />} />
             <Route path='/Currently/Form' element={<CurrentlyForm />} />
             <Route path='/Currently/EditForm' element={<CurrentlyFormEdit />} />
+            <Route path='/myposts' element={<MyPosts />} />
+            <Route path='/newpost' element={<NePost />} />
+            <Route path='/editpost/:postId' element={<EditPost />} />
 
 
         </Routes>
