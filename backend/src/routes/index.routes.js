@@ -7,6 +7,7 @@ app.use('/currenlty', require('../routes/currentlyBooksRoutes/index.routes'));
 app.use('/pending', require('../routes/pendingBooksRoutes/index.routes'));
 app.use('/history', require('../routes/historyBooksRoutes/index.routes'));
 app.use('/wish', require('../routes/wishBooksRoutes/index.routes'));
+app.use('/post', require('../routes/post/index.routes'));
 
 module.exports = app;
 

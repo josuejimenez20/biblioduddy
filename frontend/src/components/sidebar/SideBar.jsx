@@ -3,6 +3,9 @@ import { Container, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { getLocalStorageData } from '../../helpers/localstorage/getData';
 
+import { ThemeProvider } from '@mui/material/styles';
+import sideBar from './../themes/sideBar';
+
 export default function SideBar() {
 
     const [userId, setUserId] = useState(null);
@@ -18,9 +21,10 @@ export default function SideBar() {
         <>
             {
                 userId ?
+                <ThemeProvider theme={sideBar}>
                     <Container maxWidth='xl'
                         sx={{
-                            bgcolor: '#2C3E5F', height: '86vh',
+                            height: '86vh',
                         }} >
                         <Button variant="contained" sx={{
                             bgcolor: 'black', width: '100%',
@@ -56,7 +60,26 @@ export default function SideBar() {
                             navigate('/Home/WishList')
                         }}>Libros pendientes por comprar</Button>
 
+                        <Button variant="contained" sx={{
+                            bgcolor: 'black', width: '100%',
+                            height: '5vh', mt: 5,
+                            borderRadius: '10%',
+                            fontSize: '0.8em'
+                        }} onClick={() => {
+                            navigate('/Home/myposts')
+                        }}>MIS POSTS</Button>
+
+                        <Button variant="contained" sx={{
+                            bgcolor: 'black', width: '100%',
+                            height: '5vh', mt: 5,
+                            borderRadius: '10%',
+                            fontSize: '0.8em'
+                        }} onClick={() => {
+                            navigate('/Home/WishList')
+                        }}>EXPLOAR POSTS</Button>
+
                     </Container>
+                    </ThemeProvider>
                     : <></>}
         </>
     )

@@ -9,6 +9,9 @@ import {
 import { RegisterUser as RegisterUserAction } from '../../redux/actions/RegisterUser';
 import { createNewData } from '../../helpers/localstorage/createNewData';
 
+import { ThemeProvider } from '@mui/material/styles';
+import theme from '../themes/theme1'
+
 
 export default function RegisterUser() {
 
@@ -38,8 +41,9 @@ export default function RegisterUser() {
     }
 
     return (
+        <ThemeProvider theme={theme}>
         <Container maxWidth='sm'
-            sx={{ bgcolor: '#1A3366' }}>
+            >
 
             <Typography variant="h4"
                 sx={{ color: 'skyblue', textAlign: 'center' }}>
@@ -65,12 +69,13 @@ export default function RegisterUser() {
                         label='Second Lastname' variant='standard' />
                     <Button type='submit' variant='outline'  // Añadí type='submit' al botón
                         sx={{ marginTop: 5, marginBottom: 3 }}>Enviar</Button>
-                    <Link color="inherit" mb={3}
+                    <Link mb={3}
                         onClick={() => {
                             navigate('/Login')
                         }}>Ya tengo una cuenta</Link>
                 </Stack>
             </form>
         </Container>
+        </ThemeProvider>
     )
 }
