@@ -3,6 +3,9 @@ import { Container, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { getLocalStorageData } from '../../helpers/localstorage/getData';
 
+import { ThemeProvider } from '@mui/material/styles';
+import sideBar from './../themes/sideBar';
+
 export default function SideBar() {
 
     const [userId, setUserId] = useState(null);
@@ -18,15 +21,15 @@ export default function SideBar() {
         <>
             {
                 userId ?
+                <ThemeProvider theme={sideBar}>
                     <Container maxWidth='xl'
                         sx={{
-                            bgcolor: '#2C3E5F', height: '86vh',
+                            height: '86vh',
                         }} >
                         <Button variant="contained" sx={{
                             bgcolor: 'black', width: '100%',
-                            height: '5vh', mt: 9,
-                            borderRadius: '10%',
-                            fontSize: '0.8em'
+                            height: '7vh', mt: 9,
+                            borderRadius: '10%'
                         }}
                             onClick={() => {
                                 navigate('/Home/Currently')
@@ -35,25 +38,23 @@ export default function SideBar() {
 
                         <Button variant="contained" sx={{
                             bgcolor: 'black', width: '100%',
-                            height: '7vh', mt: 5,
-                            borderRadius: '10%',
-                            fontSize: '0.8em'
+                            height: '10vh', mt: 5,
+                            borderRadius: '10%'
                         }} onClick={() => {
                             navigate('/Home/Pending')
                         }}>Libros pendientes por leer</Button>
 
                         <Button variant="contained" sx={{
                             bgcolor: 'black', width: '100%',
-                            height: '5vh', mt: 5,
-                            borderRadius: '10%',
-                            fontSize: '0.8em'
+                            height: '7vh', mt: 5,
+                            borderRadius: '10%'
                         }} onClick={() => {
                             navigate('/Home/History')
                         }}>Libros Leidos</Button>
 
                         <Button variant="contained" sx={{
                             bgcolor: 'black', width: '100%',
-                            height: '7vh', mt: 5,
+                            height: '10vh', mt: 5,
                             borderRadius: '10%'
                         }} onClick={() => {
                             navigate('/Home/WishList')
@@ -78,6 +79,7 @@ export default function SideBar() {
                         }}>EXPLOAR POSTS</Button>
 
                     </Container>
+                    </ThemeProvider>
                     : <></>}
         </>
     )

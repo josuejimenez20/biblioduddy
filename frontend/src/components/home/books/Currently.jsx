@@ -10,6 +10,9 @@ import { fillBookData } from '../../../redux/slices/currentlyBooks/editBookSlice
 import { stateReset } from '../../../redux/slices/currentlyBooks/editBookSlice'
 import { deleteCurrentlyBook } from '../../../redux/actions/currentlyBooks/deleteCurrentlyBooks';
 
+import { ThemeProvider } from '@mui/material/styles';
+import book from './../../themes/books';
+
 export default function Currently() {
 
   const navigate = useNavigate();
@@ -37,12 +40,13 @@ export default function Currently() {
   }, []);
 
   return (
+    <ThemeProvider theme={book}>
     <>
       <Grid container spacing={2}>
         <Grid xs={10}>
           <Typography variant="h2" mt={2} textAlign='center'
-          color='#376DCC'>
-            Libros Actualmente Leyendo
+          color='#fff'>
+            Actualmente estás leyendo...
           </Typography>
         </Grid>
         <Grid xs={2} mt={4}>
@@ -53,7 +57,7 @@ export default function Currently() {
               navigate('/Home/Currently/Form');
             }}
           >
-            Agregar
+            +
           </Button>
         </Grid>
       </Grid>
@@ -84,5 +88,6 @@ export default function Currently() {
           : <></>
       }
     </>
+    </ThemeProvider>
   );
 }

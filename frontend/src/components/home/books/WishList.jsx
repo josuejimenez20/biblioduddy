@@ -9,7 +9,9 @@ import { getWishBooks } from '../../../redux/actions/wishBooks/getWishBooks';
 import { fillBookData } from '../../../redux/slices/currentlyBooks/editBookSlice';
 import { stateReset } from '../../../redux/slices/pendingBooks/editBookSlice'
 import { deleteWishBook } from '../../../redux/actions/wishBooks/deleteWishBook';
-import '../../styles/WishList.css';
+
+import { ThemeProvider } from '@mui/material/styles';
+import book from './../../themes/books';
 
 export default function WishList() {
 
@@ -38,12 +40,13 @@ export default function WishList() {
   }, []);
 
   return (
+    <ThemeProvider theme={book}>
     <>
       <Grid container spacing={2}>
         <Grid xs={10}>
           <Typography variant="h2" mt={2} textAlign='center'
-            color='#376DCC'>
-            Libros Actualmente Leyendo
+            color='#fff'>
+            Libros deseados
           </Typography>
         </Grid>
         <Grid xs={2} mt={4}>
@@ -54,7 +57,7 @@ export default function WishList() {
               navigate('/Home/Wish/Form');
             }}
           >
-            Agregar
+            +
           </Button>
         </Grid>
       </Grid>
@@ -81,5 +84,6 @@ export default function WishList() {
         )}
       </Grid>
     </>
+    </ThemeProvider>
   );
 }
