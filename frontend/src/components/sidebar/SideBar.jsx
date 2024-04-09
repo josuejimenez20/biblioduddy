@@ -24,7 +24,7 @@ export default function SideBar() {
                 <ThemeProvider theme={sideBar}>
                     <Container maxWidth='xl'
                         sx={{
-                            height: '86vh',
+                            height: '100vh',
                         }} >
                         <Button variant="contained" sx={{
                             bgcolor: 'black', width: '100%',
