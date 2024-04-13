@@ -38,9 +38,7 @@ export default function LoginUser() {
     return (
         <ThemeProvider theme={theme}>
         <Container maxWidth='sm' className="container">
-            <br />
-            <br />
-            <br />
+            
             <Typography variant="h3" className="title">
                 Iniciar Sesión
             </Typography>

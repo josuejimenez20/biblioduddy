@@ -19,12 +19,12 @@ export default function MenuBar() {
 
     return (
         <>
-            <Container maxWidth='xl' sx={{ bgcolor: '#11151C', height: '9vh', display: 'flex', justifyContent: 'flex-end' }}>
-                <Button
+            <Container maxWidth='xl' sx={{ bgcolor: '#643f38', height: '6rem', display: 'flex', justifyContent: 'flex-end' }}>
+                <Button sx={{color: 'white'}}
                     onClick={(() => {
                         signOut()
                     })}
-                >Cerrar Sesion</Button>
+                >Cerrar Sesión</Button>
             </Container>
         </>
     );

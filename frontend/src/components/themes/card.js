@@ -3,10 +3,10 @@ import { createTheme } from '@mui/material/styles';
 const card = createTheme({
     palette: {
         primary: {
-            main: '#376DCC',
+            main: '#f0dcd8',
         },
         background: {
-            default: '#2A3142',
+            default: '#f0dcd8',
         },
     },
     typography: {
@@ -19,7 +19,7 @@ const card = createTheme({
         MuiCard: {
             styleOverrides: {
                 root: {
-                    backgroundColor: '#455A64',
+                    backgroundColor: '#643f38',
                     borderRadius: '10%', 
                     padding:'30px'
                 },
@@ -37,8 +37,8 @@ const card = createTheme({
                 root: {
                     textTransform: 'none',
                     margin: '1.5rem 0rem',
-                    color: 'white',
-                    backgroundColor: '#FF4081',
+                    color: '#643f38',
+                    backgroundColor: '#f0dcd8',
                 },
             },
         },
