@@ -20,14 +20,16 @@ const sideBar = createTheme({
             styleOverrides: {
                 root: {
                     backgroundColor: '#643f38',
-                    borderRadius:'2rem' 
+                    //borderRadius:'2rem',
+                    margin:'1rem 0px', 
+                    left:'-10rem',
                 },
             },
         },
         MuiButton: {
             styleOverrides: {
                 root: {
-                    borderRadius:'10%',
+                    borderRadius:'1.5rem',
                     textTransform: 'none',
                     margin: '1.5rem 0rem',
                     color: '#643f38',

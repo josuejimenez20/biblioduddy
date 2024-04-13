@@ -13,7 +13,7 @@ function App() {
     <>
       <Provider store={store}>
         <MenuBar />
-        <Container maxWidth='xl'>
+        <Container maxWidth='xxxl' background='#000'>
           <Grid container spacing={2}>
             <Grid xs={2}>             
                 <SideBar />
