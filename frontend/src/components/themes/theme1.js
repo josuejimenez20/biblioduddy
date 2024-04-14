@@ -3,36 +3,37 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
     palette: {
         primary: {
-            main: '#376DCC',
+            main: '#000',
         },
         background: {
-            default: '#2A3142',
+            default: '#000',
         },
     },
     typography: {
         h3: {
             textAlign: 'center',
-            marginBottom: '6rem',
+            margin: '6rem',
+            color: '#000'
         },
     },
     components: {
         MuiInputLabel: {
             styleOverrides: {
                 root: {
-                    color: 'white',
+                    color: '#000',
                 },
             },
         },
         MuiInput: {
             styleOverrides: {
                 root: {
-                    color: 'white',
+                    color: '#000',
                     margin:'3rem 0rem',
                     '&:before': {
-                        borderColor: 'white', 
+                        borderColor: '#000', 
                     },
                     '&:hover': {
-                        borderColor: 'white', 
+                        borderColor: '#000', 
                     },
                 },
             },
@@ -42,7 +43,7 @@ const theme = createTheme({
                 root: {
                     textTransform: 'none',
                     margin: '1.5rem 0rem',
-                    color: 'white',
+                    color: '#000',
                 },
             },
         },
@@ -51,12 +52,12 @@ const theme = createTheme({
                 root: {
                     display: 'block',
                     textAlign: 'center',
-                    color: 'white',
+                    color: '#000',
                     textDecoration:'none',
                     marginBottom: '1rem',
                     cursor: 'pointer',
                     '&:hover': {
-                        color: 'white',
+                        color: '#000',
                     },
                 },
             },

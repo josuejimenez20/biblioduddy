@@ -46,7 +46,7 @@ export default function RegisterUser() {
             >
 
             <Typography variant="h4"
-                sx={{ color: 'skyblue', textAlign: 'center' }}>
+                sx={{textAlign: 'center' }}>
                 Registro
             </Typography>
 

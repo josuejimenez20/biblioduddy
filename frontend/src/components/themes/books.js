@@ -3,10 +3,10 @@ import { createTheme } from '@mui/material/styles';
 const book = createTheme({
     palette: {
         primary: {
-            main: '#376DCC',
+            main: '#f0dcd8',
         },
         background: {
-            default: '#2A3142',
+            default: '#f0dcd8',
         },
     },
     typography: {
@@ -19,7 +19,7 @@ const book = createTheme({
         MuiCard: {
             styleOverrides: {
                 root: {
-                    backgroundColor: '#455A64',
+                    backgroundColor: '#f0dcd8',
                     borderRadius: '10%', 
                     padding:'30px'
                 },
@@ -38,23 +38,23 @@ const book = createTheme({
                     textTransform: 'none',
                     margin: '1.5rem 0rem',
                     color: 'white',
-                    backgroundColor: '#FF4081',
+                    backgroundColor: '#f0dcd8',
                     '&:hover': {
-                        backgroundColor: '##FF5091', 
+                        backgroundColor: '#f0dcd8', 
                     },
                 },
                 contained: { 
-                    width: '1rem',
-                    height: '3.5rem',
+                    width: '5rem',
+                    height: '5rem',
                     position: 'fixed',
-                    fontSize:'20px',
-                    fontWeight:'bold', 
+                    fontSize:'5vh',
+                    //fontWeight:'bold', 
                     bottom: '2rem', 
                     right: '5rem',
-                    borderRadius:'50%',
-                    backgroundColor: '#00aa00',
+                    borderRadius:'100%',
+                    backgroundColor: '#04AA6D',
                     '&:hover': {
-                        backgroundColor: '#11dd11', 
+                        backgroundColor: '#09Af72', 
                     },
                 },
             },

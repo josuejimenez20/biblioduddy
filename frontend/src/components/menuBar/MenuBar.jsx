@@ -1,31 +1,30 @@
-import React from 'react';
+import { Button, Container, ThemeProvider } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import {
-    Container, Button
-} from '@mui/material';
+import menuBar from './../themes/menuBar';
 import { removeLocalStorageData } from '../../helpers/localstorage/removeData';
+import logo from '../../media/BiblioBuddy_Logo.png';
+
 
 export default function MenuBar() {
-
     const navigate = useNavigate();
 
-    const signOut = (() => {
+    const signOut = () => {
         removeLocalStorageData('USERID');
         window.location.reload();
         setTimeout(() => {
             navigate('/Login');
         }, 1000);
-    })
+    }
 
     return (
-        <>
-            <Container maxWidth='xl' sx={{ bgcolor: '#11151C', height: '9vh', display: 'flex', justifyContent: 'flex-end' }}>
-                <Button
-                    onClick={(() => {
-                        signOut()
-                    })}
-                >Cerrar Sesion</Button>
+        <ThemeProvider theme={menuBar}>
+            <Container maxWidth='xxxl'>
+            <img src={logo} alt="Home" style={{ width: '60px', height: '60px' }} />
+                <div>
+                    <Button onClick={() => navigate('/Books')}>Consigue tus libros</Button>
+                    <Button onClick={signOut}>Cerrar Sesión</Button>
+                </div>
             </Container>
-        </>
+        </ThemeProvider>
     );
 }
