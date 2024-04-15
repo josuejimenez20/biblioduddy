@@ -69,7 +69,7 @@ export default function SideBar() {
                             height: '5vh', mt: 5,
                             fontSize: '0.8em'
                         }} onClick={() => {
-                            navigate('/Home/WishList')
+                            navigate('/Home/post/all')
                         }}>EXPLOAR POSTS</Button>
 
                     </Container>

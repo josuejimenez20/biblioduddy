@@ -1,7 +1,7 @@
 const { v4 } = require('uuid')
 const { createNewPostModel, updatePostModel,
     deletePostModel, getAllPostsModel, getPostByIdModel,
-    getAllPostsByIdModel
+    getAllPostsByIdModel, getPostsByKeyWordModel
 } = require("../../models/postModels/postModels")
 
 const createNewPostService = async (postData) => {
@@ -13,8 +13,7 @@ const createNewPostService = async (postData) => {
         postData.currentDate = currentDate;
         postData.post_id = post_id;
 
-        await createNewPostModel(postData);
-
+        const result = await createNewPostModel(postData);
         return {
             success: true,
             code: 200,
@@ -78,9 +77,21 @@ const getPostByIdService = async (postId) => {
 const getAllPostsByIdServie = async (userId) => {
 
     try {
-        
+
         const posts = await getAllPostsByIdModel(userId);
         return posts;
+    } catch (error) {
+        return error;
+    }
+}
+
+const getPostsByKeyWordService = async (keyWord) => {
+    try {
+
+        const data = await getPostsByKeyWordModel(keyWord);
+
+        return { code: 200, data, message: "Posts by key word" }
+
     } catch (error) {
         return error;
     }
@@ -94,7 +105,7 @@ const getCurrentDate = async () => {
     const mes = fechaActual.getMonth() + 1; // Los meses van de 0 a 11, por lo que sumamos 1
     const año = fechaActual.getFullYear();
 
-    const fechaFormateada = dia + '/' + mes + '/' + año;
+    const fechaFormateada = mes + '/' + dia + '/' + año;
 
     return fechaFormateada;
 }
@@ -105,5 +116,6 @@ module.exports = {
     deletePostService,
     getAllPostsService,
     getPostByIdService,
-    getAllPostsByIdServie
+    getAllPostsByIdServie,
+    getPostsByKeyWordService
 }

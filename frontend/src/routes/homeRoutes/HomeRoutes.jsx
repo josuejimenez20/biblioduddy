@@ -16,6 +16,8 @@ import Welcome from '../../components/home/Welcome';
 import MyPosts from '../../components/posts/MyPosts';
 import NePost from '../../components/posts/NewPost';
 import EditPost from '../../components/posts/EditPost';
+import AllPosts from '../../components/posts/allPosts/AllPosts';
+import ViewContentPost from '../../components/posts/ViewContentPost';
 
 export default function HomeRoutes() {
     return (
@@ -38,6 +40,8 @@ export default function HomeRoutes() {
             <Route path='/myposts' element={<MyPosts />} />
             <Route path='/newpost' element={<NePost />} />
             <Route path='/editpost/:postId' element={<EditPost />} />
+            <Route path='/post/all' element={<AllPosts />} />
+            <Route path='/post/:postId' element={<ViewContentPost />} />
 
 
         </Routes>

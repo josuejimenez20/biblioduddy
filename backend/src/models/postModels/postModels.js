@@ -5,6 +5,8 @@ const createNewPostModel = async (userData) => {
     const { post_id, user_id,
         title, content, currentDate } = userData;
 
+    console.log(content);
+
     const query = `
     
     BEGIN; 
@@ -21,9 +23,8 @@ const createNewPostModel = async (userData) => {
     COMMIT;`;
 
     try {
-
+        
         const result = await queryToBiblioBuddySiteDB(query);
-
         return result;
     } catch (error) {
         return error;
@@ -110,11 +111,30 @@ const getAllPostsByIdModel = async (userId) => {
     }
 }
 
+const getPostsByKeyWordModel = async (keyWord) => {
+
+    const query = `
+    SELECT * 
+    FROM post
+    WHERE title LIKE '%${keyWord}%' 
+    OR content LIKE '%${keyWord}%';
+    `;
+    try {
+        const result = await queryToBiblioBuddySiteDB(query);
+
+        return result;
+
+    } catch (error) {
+        return error;
+    }
+}
+
 module.exports = {
     createNewPostModel,
     updatePostModel,
     deletePostModel,
     getAllPostsModel,
     getPostByIdModel,
-    getAllPostsByIdModel
+    getAllPostsByIdModel,
+    getPostsByKeyWordModel
 }

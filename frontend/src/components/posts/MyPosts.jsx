@@ -61,7 +61,7 @@ export default function MyPosts() {
                         key={index}
                         post_id={element.post_id}
                         name={element.title}
-                        publication_date={element.publish_date}
+                        publication_date={element.publish_date.slice(0, 10)}
                         author={element.autor_name}
                         deleteFunction={deletePost}
                         editFunction={editFunction}
