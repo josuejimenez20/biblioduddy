@@ -1,11 +1,12 @@
 import axios from 'axios';
 
-export const newPost = async (postData) => {
+export const getAllPostsAction = async () => {
 
     try {
 
-        const result = await axios.post(`http://localhost:3000/api/v1/post/new`, postData);
-        return result
+        const { data } = await axios.get(`http://localhost:3000/api/v1/post/all`);
+
+        return data.posts
 
     } catch (error) {
         return {

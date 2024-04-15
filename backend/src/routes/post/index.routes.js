@@ -1,7 +1,8 @@
 const { Router } = require('express');
 const { createNewPostController, updatePostController,
     deletePostController, getAllPostsController,
-    getPostByIdController, getAllPostsByIdController }
+    getPostByIdController, getAllPostsByIdController,
+    getPostsByKeyWordController }
     = require('../../controllers/post/postControllers');
 const { createNewPostValidator, updatePostValidator
 } = require('../../validator/post/index.post.validator');
@@ -15,6 +16,7 @@ router.delete('/:postId', deletePostController);
 router.get('/all', getAllPostsController);
 router.get('/:postId', getPostByIdController);
 router.get('/all/:userId', getAllPostsByIdController);
+router.get('/search/:keyWord', getPostsByKeyWordController);
 
 
 module.exports = router;

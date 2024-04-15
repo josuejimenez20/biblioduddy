@@ -1,6 +1,6 @@
 const { createNewPostService, updatePostService,
     deletePostService, getAllPostsService, getPostByIdService,
-    getAllPostsByIdServie
+    getAllPostsByIdServie, getPostsByKeyWordService
 } = require('../../services/postServices/postServices');
 
 const createNewPostController = async (req, res) => {
@@ -95,7 +95,7 @@ const getPostByIdController = async (req, res) => {
 const getAllPostsByIdController = async (req, res) => {
     try {
 
-        const {userId} = req.params;
+        const { userId } = req.params;
         const posts = await getAllPostsByIdServie(userId);
 
         return res.status(200).json({
@@ -108,11 +108,31 @@ const getAllPostsByIdController = async (req, res) => {
     }
 }
 
+const getPostsByKeyWordController = async (req, res) => {
+    try {
+
+        const { keyWord } = req.params;
+
+        const { code, message, data } = await getPostsByKeyWordService(keyWord);
+
+        return res.status(code).json({
+            message,
+            data
+        })
+
+    } catch (error) {
+        return res.status(500).json({
+            message: "Error to get posts by key word"
+        })
+    }
+}
+
 module.exports = {
     createNewPostController,
     updatePostController,
     deletePostController,
     getAllPostsController,
     getPostByIdController,
-    getAllPostsByIdController
+    getAllPostsByIdController,
+    getPostsByKeyWordController
 }
