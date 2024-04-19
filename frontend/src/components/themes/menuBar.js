@@ -34,7 +34,7 @@ const menuBar = createTheme({
                     borderRadius:'1.5rem .2rem',
                     textTransform: 'none',
                     margin: '0 10px',
-                    color: 'black',
+                    color: '#6d2e9b',
                     fontFamily: '"Arial", serif', 
                     padding: '10px',
                     fontSize:'2.5vh',

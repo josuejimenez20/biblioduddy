@@ -19,9 +19,11 @@ export default function MenuBar() {
     return (
         <ThemeProvider theme={menuBar}>
             <Container maxWidth='xxxl'>
-            <img src={logo} alt="Home" style={{ width: '60px', height: '60px' }} />
+            <img src={logo} alt="Home" style={{ width: '70px', height: '70px' }} onClick={() => {
+                            navigate('/Home')
+                        }}/>
                 <div>
-                    <Button onClick={() => navigate('/Books')}>Consigue tus libros</Button>
+                    <Button id='getBooks' onClick={() => navigate('/Books')}>Consigue tus libros</Button>
                     <Button onClick={signOut}>Cerrar Sesión</Button>
                 </div>
             </Container>
