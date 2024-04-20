@@ -42,7 +42,7 @@ export default function RegisterUser() {
 
     return (
         <ThemeProvider theme={theme}>
-        <Container maxWidth='sm'
+        <Container 
             >
 
             <Typography variant="h4"
@@ -59,14 +59,14 @@ export default function RegisterUser() {
 
                     <TextField id='email' name='email' label='Email'
                         variant='standard' sx={{ marginBottom: 5, marginTop: 3 }} />
-                    <TextField id='password' name='password' label='Password'
+                    <TextField id='password' name='password' label='Contraseña'
                         variant='standard' sx={{ marginBottom: 5 }} />
-                    <TextField id='name' name='name' label='Name'
+                    <TextField id='name' name='name' label='Nombre'
                         variant='standard' sx={{ marginBottom: 5 }} />
-                    <TextField id='lastname' lastname='lastname' label='Lastname'
+                    <TextField id='lastname' lastname='lastname' label='Primer apellido'
                         variant='standard' sx={{ marginBottom: 5 }} />
                     <TextField id='second_lastname' name='second_lastname'
-                        label='Second Lastname' variant='standard' />
+                        label='Segundo apellido' variant='standard' />
                     <Button type='submit' variant='outline'  // Añadí type='submit' al botón
                         sx={{ marginTop: 5, marginBottom: 3 }}>Enviar</Button>
                     <Link mb={3}

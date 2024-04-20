@@ -17,6 +17,19 @@ const theme = createTheme({
         },
     },
     components: {
+        MuiContainer: {
+            styleOverrides: {
+                root: {
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    //alignItems: 'center',
+                    minHeight: '100vh', 
+                    width: '50%',
+                    marginLeft:'35.5%',
+                },
+            },
+        },
         MuiInputLabel: {
             styleOverrides: {
                 root: {
@@ -28,7 +41,7 @@ const theme = createTheme({
             styleOverrides: {
                 root: {
                     color: '#000',
-                    margin:'3rem 0rem',
+                    margin:'2rem 0rem',
                     '&:before': {
                         borderColor: '#000', 
                     },
@@ -41,9 +54,16 @@ const theme = createTheme({
         MuiButton: {
             styleOverrides: {
                 root: {
+                    fontsize: '20px',
                     textTransform: 'none',
+                    fontFamily: 'verdana',
                     margin: '1.5rem 0rem',
                     color: '#000',
+                    padding: '1rem',
+                    '&:hover': {
+                        backgroundColor: '#ead9fb',
+                        border:'none', 
+                    },
                 },
             },
         },
@@ -56,8 +76,11 @@ const theme = createTheme({
                     textDecoration:'none',
                     marginBottom: '1rem',
                     cursor: 'pointer',
+                    fontFamily: 'verdana',
+                    padding: '1rem',
                     '&:hover': {
                         color: '#000',
+                        backgroundColor: '#ead9fb',
                     },
                 },
             },

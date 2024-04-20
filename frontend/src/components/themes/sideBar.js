@@ -27,16 +27,16 @@ const sideBar = createTheme({
         MuiButton: {
             styleOverrides: {
                 root: {
-                    width: '100% !important',  // Asegura que los botones ocupen todo el ancho del sidebar
+                    width: '100% !important',  
                     height:'7rem',
                     textTransform: 'none',
                     color: '#6d2e9b',
                     fontFamily: '"Verdana", serif',
                     fontSize:'2vh', 
-                    border:'none !important',  // Esto debería ser suficiente para quitar el borde
+                    border:'none !important',  
                     '&:hover': {
                         backgroundColor: '#ead9fb',
-                        border:'none',  // Asegúrate de que el borde también se quite al pasar el ratón
+                        border:'none', 
                     },
                 },
             },
