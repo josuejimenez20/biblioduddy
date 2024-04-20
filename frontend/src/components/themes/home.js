@@ -2,15 +2,16 @@ import { createTheme } from '@mui/material/styles';
 
 const home = createTheme({
     mainContainer:{
-        display: 'flex',
-        flexDirection: 'row',
-        height: 'auto',
-        margin:'0rem',
+        
+        width: '100%',
     },
     container: {
+        marginTop:'5rem',
         display: 'flex',
         flexDirection: 'column',
-        margin:'5rem',
+        marginRight: '18.5rem',
+        width: '100vh',
+        left:'10px',
     },
     title: {
         fontSize: '5.5rem',
@@ -44,7 +45,7 @@ const home = createTheme({
     MuiImage: { 
         styleOverrides: {
             root: {
-                width: '20%', // Para que ocupe el 20% del espacio
+
             },
         },
     },
