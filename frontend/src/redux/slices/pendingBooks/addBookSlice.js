@@ -24,6 +24,11 @@ export const addBookSlice = createSlice({
             state.error = action.payload;
             state.loading = false;
             state.success = false;
+        },
+        resetStateAdd: (state, action) => {
+            state.error = null;
+            state.loading = null
+            state.success = null
         }
     }
 });
@@ -31,5 +36,6 @@ export const addBookSlice = createSlice({
 export const {
     fetchAddBook,
     fetchAddBookFailure,
-    fetchAddBookSuccess
+    fetchAddBookSuccess,
+    resetStateAdd
 } = addBookSlice.actions;

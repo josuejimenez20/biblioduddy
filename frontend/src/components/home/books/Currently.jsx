@@ -8,6 +8,7 @@ import { getLocalStorageData } from '../../../helpers/localstorage/getData';
 import { getCurrentlyBooks } from '../../../redux/actions/currentlyBooks/getCurrentlyBooks';
 import { fillBookData } from '../../../redux/slices/currentlyBooks/editBookSlice';
 import { stateReset } from '../../../redux/slices/currentlyBooks/editBookSlice'
+import { resetStateAdd } from '../../../redux/slices/currentlyBooks/addBookSlices'
 import { deleteCurrentlyBook } from '../../../redux/actions/currentlyBooks/deleteCurrentlyBooks';
 
 import { ThemeProvider } from '@mui/material/styles';
@@ -36,6 +37,7 @@ export default function Currently() {
 
   useEffect(() => {
     dispatch(stateReset());
+    dispatch(resetStateAdd());
     dispatch(getCurrentlyBooks(userId));
   }, []);
 
@@ -45,7 +47,7 @@ export default function Currently() {
       <Grid container spacing={2}>
         <Grid xs={10}>
           <Typography variant="h2" mt={2} textAlign='center'
-          color='#fff'>
+          color='black'>
             Actualmente estás leyendo...
           </Typography>
         </Grid>

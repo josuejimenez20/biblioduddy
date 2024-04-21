@@ -7,7 +7,8 @@ import BookCard from '../../cards/BookCard';
 import { getLocalStorageData } from '../../../helpers/localstorage/getData';
 import { getWishBooks } from '../../../redux/actions/wishBooks/getWishBooks';
 import { fillBookData } from '../../../redux/slices/currentlyBooks/editBookSlice';
-import { stateReset } from '../../../redux/slices/pendingBooks/editBookSlice'
+import { stateReset } from '../../../redux/slices/wishBooks/editBookSlice'
+import { stateResetAdd } from '../../../redux/slices/wishBooks/addBookSlice'
 import { deleteWishBook } from '../../../redux/actions/wishBooks/deleteWishBook';
 
 import { ThemeProvider } from '@mui/material/styles';
@@ -36,6 +37,7 @@ export default function WishList() {
 
   useEffect(() => {
     dispatch(stateReset());
+    dispatch(stateResetAdd());
     dispatch(getWishBooks(userId));
   }, []);
 
@@ -45,7 +47,7 @@ export default function WishList() {
       <Grid container spacing={2}>
         <Grid xs={10}>
           <Typography variant="h2" mt={2} textAlign='center'
-            color='#fff'>
+            color='black'>
             Libros deseados
           </Typography>
         </Grid>
