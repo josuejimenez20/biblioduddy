@@ -8,6 +8,7 @@ import { getLocalStorageData } from '../../../helpers/localstorage/getData';
 import { getPendingBooks } from '../../../redux/actions/pendingBooks/getPendingBooks';
 import { fillBookData } from '../../../redux/slices/currentlyBooks/editBookSlice';
 import { stateReset } from '../../../redux/slices/pendingBooks/editBookSlice'
+import { resetStateAdd } from '../../../redux/slices/pendingBooks/addBookSlice'
 import { deletePendingBook } from '../../../redux/actions/pendingBooks/deletePending';
 
 import { ThemeProvider } from '@mui/material/styles';
@@ -36,6 +37,7 @@ export default function Pending() {
 
   useEffect(() => {
     dispatch(stateReset());
+    dispatch(resetStateAdd());
     dispatch(getPendingBooks(userId));
   }, []);
 
@@ -45,7 +47,7 @@ export default function Pending() {
       <Grid container spacing={2}>
         <Grid xs={10}>
           <Typography variant="h2" mt={2} textAlign='center'
-            color='#fff'>
+            color='black'>
             Libros pendientes
           </Typography>
         </Grid>

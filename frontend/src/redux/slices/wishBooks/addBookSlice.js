@@ -24,12 +24,19 @@ export const addBookSlice = createSlice({
             state.error = action.payload;
             state.loading = false;
             state.success = false;
-        }
+        },
+        stateResetAdd: (state, action) => {
+            state.loading = null;
+            state.error = null;
+            state.success = null;
+            state.bookData = null;
+        },
     }
 });
 
 export const {
     fetchAddBook,
     fetchAddBookFailure,
-    fetchAddBookSuccess
+    fetchAddBookSuccess,
+    stateResetAdd
 } = addBookSlice.actions;

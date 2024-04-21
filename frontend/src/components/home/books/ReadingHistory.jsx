@@ -8,6 +8,7 @@ import { getLocalStorageData } from '../../../helpers/localstorage/getData';
 import { getHistoryBooks } from '../../../redux/actions/historyBooks/getHistoryBooks';
 import { fillBookData } from '../../../redux/slices/historyBooks/editBookSlice';
 import { stateReset } from '../../../redux/slices/historyBooks/editBookSlice'
+import { resetStateAdd } from '../../../redux/slices/historyBooks/addBookSlices'
 import { deleteHistoryBook } from '../../../redux/actions/historyBooks/deleteHistoryBook';
 
 import { ThemeProvider } from '@mui/material/styles';
@@ -36,6 +37,7 @@ export default function ReadingHistory() {
 
   useEffect(() => {
     dispatch(stateReset());
+    dispatch(resetStateAdd());
     dispatch(getHistoryBooks(userId));
   }, []);
 
@@ -45,7 +47,7 @@ export default function ReadingHistory() {
       <Grid container spacing={2}>
         <Grid xs={10}>
           <Typography variant="h2" mt={2} textAlign='center'
-            color='#fff'>
+            color='black'>
             Ya has leído...
           </Typography>
         </Grid>
