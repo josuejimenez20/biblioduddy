@@ -3,10 +3,10 @@ import { createTheme } from '@mui/material/styles';
 const sideBar = createTheme({
     palette: {
         primary: {
-            main: '#f0dcd8',
+            main: '#fff',
         },
         background: {
-            default: '#f0dcd8',
+            default: '#fff',
         },
     },
     typography: {
@@ -19,25 +19,24 @@ const sideBar = createTheme({
         MuiContainer: {
             styleOverrides: {
                 root: {
-                    backgroundColor: '#643f38',
-                    //borderRadius:'2rem',
-                    margin:'1rem 0px', 
-                    left:'-10rem',
+                    borderRight: '2px solid #e7e7e7',
+                    marginTop: '2rem',
                 },
             },
         },
         MuiButton: {
             styleOverrides: {
                 root: {
-                    borderRadius:'1.5rem',
+                    width: '100% !important',  
+                    height:'7rem',
                     textTransform: 'none',
-                    margin: '1.5rem 0rem',
-                    color: '#643f38',
-                    backgroundColor: '#f0dcd8',
-                    fontFamily: '"Roboto Slab", serif', 
-                    padding: '10px',
+                    color: '#6d2e9b',
+                    fontFamily: '"Verdana", serif',
+                    fontSize:'2vh', 
+                    border:'none !important',  
                     '&:hover': {
-                        backgroundColor: '#f0dcd8',
+                        backgroundColor: '#ead9fb',
+                        border:'none', 
                     },
                 },
             },

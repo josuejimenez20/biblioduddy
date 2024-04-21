@@ -23,54 +23,32 @@ export default function SideBar() {
                 userId ?
                 <ThemeProvider theme={sideBar}>
                     <Container maxWidth='xl'
-                        sx={{
-                            height: '100vh',
-                        }} >
-                        <Button variant="contained" sx={{
-                            width: '100%',
-                            height: '7vh', mt: 9,
-                        }}
+                     >
+                        <Button variant="text"
                             onClick={() => {
                                 navigate('/Home/Currently')
                             }}
                         >Libros Actuales</Button>
 
-                        <Button variant="contained" sx={{
-                            width: '100%',
-                            height: '10vh', mt: 5,
-                        }} onClick={() => {
+                        <Button variant="text" onClick={() => {
                             navigate('/Home/Pending')
-                        }}>Libros pendientes por leer</Button>
+                        }}>Pendientes por leer</Button>
 
-                        <Button variant="contained" sx={{
-                            width: '100%',
-                            height: '7vh', mt: 5,
-                        }} onClick={() => {
+                        <Button variant="text" onClick={() => {
                             navigate('/Home/History')
-                        }}>Libros Leidos</Button>
+                        }}>Libros Leídos</Button>
 
-                        <Button variant="contained" sx={{
-                            width: '100%',
-                            height: '10vh', mt: 5,
-                        }} onClick={() => {
+                        <Button variant="text" onClick={() => {
                             navigate('/Home/WishList')
-                        }}>Libros pendientes por comprar</Button>
+                        }}>Pendientes por comprar</Button>
 
-                        <Button variant="contained" sx={{
-                            width: '100%',
-                            height: '5vh', mt: 5,
-                            fontSize: '0.8em'
-                        }} onClick={() => {
+                        <Button variant="text" onClick={() => {
                             navigate('/Home/myposts')
-                        }}>MIS POSTS</Button>
+                        }}>Mis Posts</Button>
 
-                        <Button variant="contained" sx={{
-                            width: '100%',
-                            height: '5vh', mt: 5,
-                            fontSize: '0.8em'
-                        }} onClick={() => {
+                        <Button variant="text" onClick={() => {
                             navigate('/Home/post/all')
-                        }}>EXPLOAR POSTS</Button>
+                        }}>Explorar Posts</Button>
 
                     </Container>
                     </ThemeProvider>

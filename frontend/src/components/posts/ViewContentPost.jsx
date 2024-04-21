@@ -5,7 +5,7 @@ import {
 } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { getPostById } from '../../redux/actions/posts/getPostById';
-import { TextoConSaltosDeLinea } from '../../helpers/text/newContent';
+import { TextoConSaltosDeLinea } from '../../helpers/text/NewContent';
 
 export default function ViewContentPost() {
 

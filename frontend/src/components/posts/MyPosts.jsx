@@ -5,6 +5,8 @@ import PostCard from '../cards/PostCard';
 import { getLocalStorageData } from '../../helpers/localstorage/getData';
 import { getAllPostsByUserId } from '../../redux/actions/posts/getMyPosts';
 import { deletMyPost } from '../../redux/actions/posts/deleteMyPost';
+import { ThemeProvider } from '@mui/material/styles';
+import book from './../themes/books';
 
 export default function MyPosts() {
 
@@ -46,13 +48,14 @@ export default function MyPosts() {
     }, [])
 
     return (
+        <ThemeProvider theme={book}>
         <>
 
             <Button variant='contained'
                 onClick={() => {
                     navigate('/Home/newpost')
                 }}>
-                Nuevo Post
+                +
             </Button>
 
             {posts ?
@@ -73,5 +76,6 @@ export default function MyPosts() {
 
 
         </>
+        </ThemeProvider>
     )
 }

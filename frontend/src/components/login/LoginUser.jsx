@@ -37,7 +37,7 @@ export default function LoginUser() {
 
     return (
         <ThemeProvider theme={theme}>
-        <Container maxWidth='sm' className="container">
+        <Container className="container">
             
             <Typography variant="h3" className="title">
                 Iniciar Sesión
@@ -48,12 +48,12 @@ export default function LoginUser() {
                     e.preventDefault()
                     handleLoginSubmit(e)
                 }}>
-                <Stack mt={1}>
+                <Stack >
 
                     <TextField id='email' name='email' label='Email'
                         variant='standard' className="textField" />
                     <TextField id='password' name='password'
-                        label='Password' variant='standard' type='password'/>
+                        label='Contraseña' variant='standard' type='password'/>
                     <Button type='submit' variant='standard' className="button">Enviar</Button>
                     <Link mb={3}
                         onClick={() => {

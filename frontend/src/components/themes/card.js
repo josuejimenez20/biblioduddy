@@ -6,7 +6,7 @@ const card = createTheme({
             main: '#f0dcd8',
         },
         background: {
-            default: '#f0dcd8',
+            default: '#fff',
         },
     },
     typography: {
@@ -19,26 +19,35 @@ const card = createTheme({
         MuiCard: {
             styleOverrides: {
                 root: {
-                    backgroundColor: '#643f38',
-                    borderRadius: '10%', 
-                    padding:'30px'
+                    backgroundColor: '#401F71',
+                    borderRadius: '10px', 
+                    padding:'15px',
+                    color: '#000',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                 },
             },
+        },
+        MuiBox:{
+
         },
         MuiTypography: {
             styleOverrides: {
                 h5: {
                     fontFamily: '"Roboto Slab", serif',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                 },
             },
         },
+        
         MuiButton: {
             styleOverrides: {
                 root: {
                     textTransform: 'none',
                     margin: '1.5rem 0rem',
                     color: '#643f38',
-                    backgroundColor: '#f0dcd8',
+                    backgroundColor: '#aaaa99',
                 },
             },
         },
