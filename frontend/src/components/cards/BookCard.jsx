@@ -19,21 +19,25 @@ export default function BookCard({
     bookId }) {
     return (
         <ThemeProvider theme={card}>
-        <Card sx={{ minWidth: 275}}>
+        <Card sx={{ maxWidth: '480px'}}>
+            <Box
+            backgroundColor="#ccccbb"
+            alignItems="center"
+            sx={{ border: '2px solid grey', padding:'20px'}}>
+            <Box sx={{ maxWidth: '240px', borderRight: '2px solid grey'}}>
             <CardContent>
-                <Typography sx={{ fontSize: 14 }} color="#C0C8DA" gutterBottom>
-                    {gender}
-                </Typography>
                 <Typography variant="h5" component="div">
                     {name}
                 </Typography>
-                <Typography sx={{ mb: 1.5 }} color="#C0C8DA">
+                <Typography sx={{ mb: 1.5 }}>
                     {author}
+                </Typography>
+                <Typography sx={{ fontSize: 14 }} gutterBottom>
+                    {gender}
                 </Typography>
                 <Typography variant="body2">
                     {editorial}
-                    <br />
-                    <br />
+                    <br/>
                     {publication_date}
                 </Typography>
             </CardContent>
@@ -56,6 +60,8 @@ export default function BookCard({
                     }))}
                 >Eliminar </Button>
             </CardActions>
+            </Box>
+            </Box>
         </Card>
         </ThemeProvider>
     );
