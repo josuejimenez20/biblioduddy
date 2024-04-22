@@ -6,6 +6,9 @@ import NewBookForm from '../NewBookForm';
 import Grid from '@mui/material/Unstable_Grid2';
 import { editHistoryBook } from '../../../../redux/actions/historyBooks/editHistoryBook';
 
+import { ThemeProvider } from '@mui/material/styles';
+import form from '../../../themes/add'
+
 export default function HistoryFormEdit() {
 
     const navigate = useNavigate();
@@ -38,19 +41,15 @@ export default function HistoryFormEdit() {
     })
 
     return (
-        <>
+        <ThemeProvider theme={form}>
+            <Typography variant='h3' textAlign='center' mb={5} mt={3}>
+                        Editar libro leído "{name}"</Typography>
             <Grid container >
-                <Grid xs={11}>
-                    <Typography variant='h3' textAlign='center' mb={5} mt={3}
-                        color='#376DCC'>
-                        EDITAR LIBRO {name}</Typography>
-                </Grid>
-                <Grid xs={1}>
+                <Grid xs={1} sx={{marginLeft:'95%'}}>
                     <Button variant="text" onClick={() => {
                         navigate('/Home/History')
-                    }}> <Typography variant='h5' mt={3}
-                        textAlign='center'>
-                            X </Typography> </Button>
+                    }}> <Typography variant='h5'
+                        textAlign='center'>x</Typography> </Button>
                 </Grid>
             </Grid>
             <Grid xs={12} marginLeft={2}>
@@ -65,6 +64,6 @@ export default function HistoryFormEdit() {
                     publication_date={publication_date}
                 />
             </Grid>
-        </>
+        </ThemeProvider>
     )
 }

@@ -50,9 +50,9 @@ export default function LoginUser() {
                 }}>
                 <Stack >
 
-                    <TextField id='email' name='email' label='Email'
+                    <TextField id='email' name='email' label='Email' color='secondary'
                         variant='standard' className="textField" />
-                    <TextField id='password' name='password'
+                    <TextField id='password' name='password' color='secondary'
                         label='Contraseña' variant='standard' type='password'/>
                     <Button type='submit' variant='standard' className="button">Enviar</Button>
                     <Link mb={3}
