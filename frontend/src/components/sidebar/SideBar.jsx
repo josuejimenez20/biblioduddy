@@ -40,7 +40,7 @@ export default function SideBar() {
 
                         <Button variant="text" onClick={() => {
                             navigate('/Home/WishList')
-                        }}>Pendientes por comprar</Button>
+                        }}>Lista de deseados</Button>
 
                         <Button variant="text" onClick={() => {
                             navigate('/Home/myposts')

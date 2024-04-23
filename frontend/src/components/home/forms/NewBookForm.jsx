@@ -1,6 +1,8 @@
 import React from 'react';
-import { TextField, Button } from '@mui/material';
+import { TextField, Button} from '@mui/material';
 import Grid from '@mui/material/Grid';
+
+//import { DateField } from '@mui/x-date-pickers/DateField';
 
 export default function NewBookForm({
     handleSumbit,
@@ -19,45 +21,42 @@ export default function NewBookForm({
                     handleSumbit(e.target);
                 }}
             >
-                <Grid container spacing={3}
-                    sx={{
-                        backgroundColor: '#2A3142', padding: '2%',
-                        marginRight: '80px'
-                    }}>
+                <Grid container spacing={3}>
                     <Grid item xs={6}>
-                        <TextField id="name" name="name" fullWidth
+                        <TextField id="name" name="name" fullWidth color='secondary'
                             label="Nombre" variant="outlined" defaultValue={name}
                         />
                     </Grid>
                     <Grid item xs={6}>
-                        <TextField id="author" name="author" fullWidth
+                        <TextField id="author" name="author" fullWidth color='secondary'
                             label="Autor" variant="outlined" defaultValue={author} />
                     </Grid>
                     <Grid item xs={6}>
-                        <TextField id="gender" name="gender" fullWidth
-                            label="Genero" variant="outlined" defaultValue={gender} />
+                        <TextField id="gender" name="gender" fullWidth color='secondary'
+                            label="Género" variant="outlined" defaultValue={gender} />
                     </Grid>
                     <Grid item xs={6}>
                         <TextField
+                            color='secondary'
                             id="publication_date"
                             name="publication_date"
                             fullWidth
-                            label="Fecha De Publicacion"
+                            label="Fecha de publicación"
                             variant="outlined"
                             defaultValue={publication_date}
                         />
                     </Grid>
                     <Grid item xs={6}>
-                        <TextField id="editorial" name="editorial"
+                        <TextField id="editorial" name="editorial" color='secondary'
                             fullWidth label="Editorial" variant="outlined" defaultValue={editorial} />
                     </Grid>
                     <Grid item xs={6}>
-                        <TextField id="image_path" name="image_path"
+                        <TextField id="image_path" name="image_path" color='secondary'
                             fullWidth label="Imagen" variant="outlined" defaultValue={image_path} />
                     </Grid>
 
                     <Grid item xs={12}>
-                        <Button type="submit" variant="contained" fullWidth>
+                        <Button type="submit" sx={{width:'3rem'}}>
                             {nameButton}
                         </Button>
                     </Grid>

@@ -57,17 +57,17 @@ export default function RegisterUser() {
                 }}>
                 <Stack mt={1}>
 
-                    <TextField id='email' name='email' label='Email'
+                    <TextField id='email' name='email' label='Email' color='secondary'
                         variant='standard' sx={{ marginBottom: 5, marginTop: 3 }} />
-                    <TextField id='password' name='password' label='Contraseña'
+                    <TextField id='password' name='password' label='Contraseña' color='secondary'
                         variant='standard' sx={{ marginBottom: 5 }} />
-                    <TextField id='name' name='name' label='Nombre'
+                    <TextField id='name' name='name' label='Nombre' color='secondary'
                         variant='standard' sx={{ marginBottom: 5 }} />
-                    <TextField id='lastname' lastname='lastname' label='Primer apellido'
+                    <TextField id='lastname' lastname='lastname' label='Primer apellido' color='secondary'
                         variant='standard' sx={{ marginBottom: 5 }} />
-                    <TextField id='second_lastname' name='second_lastname'
+                    <TextField id='second_lastname' name='second_lastname' color='secondary'
                         label='Segundo apellido' variant='standard' />
-                    <Button type='submit' variant='outline'  // Añadí type='submit' al botón
+                    <Button type='submit' variant='outline' 
                         sx={{ marginTop: 5, marginBottom: 3 }}>Enviar</Button>
                     <Link mb={3}
                         onClick={() => {

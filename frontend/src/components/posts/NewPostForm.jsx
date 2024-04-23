@@ -1,6 +1,9 @@
 import React from 'react';
 import { Grid, TextField, Button } from '@mui/material';
 
+import { ThemeProvider } from '@mui/material/styles';
+import form from '../themes/add';
+
 export default function NewPostForm({
     handleSumbit,
     title,
@@ -9,18 +12,14 @@ export default function NewPostForm({
     nameButton = 'Agregar'
 }) {
     return (
-        <>
+        <ThemeProvider theme={form}>
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
                     handleSumbit(e.target);
                 }}
             >
-                <Grid container spacing={3}
-                    sx={{
-                        backgroundColor: '#2A3142', padding: '2%',
-                        marginRight: '80px'
-                    }}>
+                <Grid container spacing={3}>
                     <Grid item xs={12}>
                         <TextField id="title" title="Titulo" fullWidth
                             label="Titulo" variant="outlined" defaultValue={title}
@@ -38,12 +37,12 @@ export default function NewPostForm({
                     </Grid>
 
                     <Grid item xs={12}>
-                        <Button type="submit" variant="contained" fullWidth>
+                        <Button type="submit" fullWidth>
                             {nameButton}
                         </Button>
                     </Grid>
                 </Grid>
             </form>
-        </>
+        </ThemeProvider>
     )
 }

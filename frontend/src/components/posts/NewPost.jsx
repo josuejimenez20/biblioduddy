@@ -7,6 +7,9 @@ import { getLocalStorageData } from '../../helpers/localstorage/getData';
 import { newPost } from '../../redux/actions/posts/newPost';
 import PostCard from '../cards/PostCard';
 
+import { ThemeProvider } from '@mui/material/styles';
+import form from '../themes/add';
+
 export default function NePost() {
 
     const navigate = useNavigate();
@@ -28,24 +31,20 @@ export default function NePost() {
     })
 
     return (
-        <>
+        <ThemeProvider theme={form}>
+            <Typography variant='h3' textAlign='center' mb={5} mt={3}>
+                        Nuevo post</Typography>
             <Grid container>
-                <Grid xs={11}>
-                    <Typography variant='h3' textAlign='center' mb={5} mt={3}
-                        color='#376DCC'>
-                        NUEVO POST </Typography>
-                </Grid>
-                <Grid xs={1}>
+                <Grid xs={1} sx={{marginLeft:'95%'}}>
                     <Button variant="text" onClick={() => {
                         navigate('/Home/myposts')
-                    }}> <Typography variant='h5' mt={3}
-                        textAlign='center'>
-                            X </Typography> </Button>
+                    }}> <Typography variant='h5'
+                        textAlign='center'>x</Typography> </Button>
                 </Grid>
                 <Grid xs={12} marginLeft={2}>
                     <NewPostForm handleSumbit={handleNewPost} />
                 </Grid>
             </Grid>
-        </>
+        </ThemeProvider>
     )
 }

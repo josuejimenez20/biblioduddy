@@ -7,6 +7,9 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { getLocalStorageData } from '../../../../helpers/localstorage/getData'
 import { addPendingBook } from '../../../../redux/actions/pendingBooks/addPending';
 
+import { ThemeProvider } from '@mui/material/styles';
+import form from '../../../themes/add'
+
 export default function PendingForm() {
 
     const navigate = useNavigate();
@@ -39,24 +42,20 @@ export default function PendingForm() {
     })
 
     return (
-        <>
+        <ThemeProvider theme={form}>
+            <Typography variant='h3' textAlign='center' mb={5} mt={3}>
+                        Agregar un libro pendiente </Typography>
             <Grid container >
-                <Grid xs={11}>
-                    <Typography variant='h3' textAlign='center' mb={5} mt={3}
-                        color='#376DCC'>
-                        NUEVO LIBRO LEYENDO ACTUALMENTE </Typography>
-                </Grid>
-                <Grid xs={1}>
+                <Grid xs={1} sx={{marginLeft:'95%'}}>
                     <Button variant="text" onClick={() => {
                         navigate('/Home/Pending')
-                    }}> <Typography variant='h5' mt={3}
-                        textAlign='center'>
-                            X </Typography> </Button>
+                    }}> <Typography variant='h5'
+                        textAlign='center'>x</Typography> </Button>
                 </Grid>
             </Grid>
             <Grid xs={12} marginLeft={2}>
                 <NewBookForm handleSumbit={handleNewBook} />
             </Grid>
-        </>
+        </ThemeProvider>
     )
 }

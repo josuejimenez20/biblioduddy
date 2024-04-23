@@ -7,6 +7,9 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { getLocalStorageData } from '../../../../helpers/localstorage/getData'
 import { addHistoryBook } from '../../../../redux/actions/historyBooks/addHistory';
 
+import { ThemeProvider } from '@mui/material/styles';
+import form from '../../../themes/add'
+
 export default function HistoryForm() {
 
     const navigate = useNavigate();
@@ -39,24 +42,22 @@ export default function HistoryForm() {
     })
 
     return (
+        <ThemeProvider theme={form}>
         <>
-            <Grid container >
-                <Grid xs={11}>
-                    <Typography variant='h3' textAlign='center' mb={5} mt={3}
-                        color='#376DCC'>
-                        NUEVO LIBRO LEYENDO ACTUALMENTE </Typography>
-                </Grid>
-                <Grid xs={1}>
+            <Typography variant='h3' textAlign='center' mb={5} mt={3}>
+                        Agregar a su lista de leídos</Typography>
+            <Grid container>
+                <Grid xs={1} sx={{marginLeft:'95%'}}>
                     <Button variant="text" onClick={() => {
                         navigate('/Home/History')
-                    }}> <Typography variant='h5' mt={3}
-                        textAlign='center'>
-                            X </Typography> </Button>
+                    }}> <Typography variant='h5'
+                        textAlign='center'>x</Typography> </Button>
                 </Grid>
             </Grid>
             <Grid xs={12} marginLeft={2}>
                 <NewBookForm handleSumbit={handleNewBook} />
             </Grid>
         </>
+        </ThemeProvider>
     )
 }
