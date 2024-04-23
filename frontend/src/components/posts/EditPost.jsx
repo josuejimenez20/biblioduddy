@@ -6,6 +6,9 @@ import { getPostById } from '../../redux/actions/posts/getPostById';
 import {editMyPost} from '../../redux/actions/posts/editMyPost';
 import { getLocalStorageData } from '../../helpers/localstorage/getData';
 
+import { ThemeProvider } from '@mui/material/styles';
+import form from '../themes/add';
+
 export default function EditPost() {
 
     const navigate = useNavigate();
@@ -47,23 +50,21 @@ export default function EditPost() {
     }, [])
 
     return (
-        <>
+        <ThemeProvider theme={form}>
             {
                 data ?
 
 
                     <Grid container>
                         <Grid xs={11}>
-                            <Typography variant='h3' textAlign='center' mb={5} mt={3}
-                                color='#376DCC'>
-                                EDITAR POST </Typography>
+                            <Typography variant='h3' textAlign='center' mb={5} mt={3}>
+                                Editar post</Typography>
                         </Grid>
-                        <Grid xs={1}>
+                        <Grid xs={1} sx={{marginLeft:'95%'}}>
                             <Button variant="text" onClick={() => {
                                 navigate('/Home/myposts')
-                            }}> <Typography variant='h5' mt={3}
-                                textAlign='center'>
-                                    X </Typography> </Button>
+                            }}> <Typography variant='h5'
+                                textAlign='center'>x</Typography> </Button>
                         </Grid>
                         <Grid xs={12} marginLeft={2}>
                             <NewPostForm
@@ -75,6 +76,6 @@ export default function EditPost() {
                     </Grid>
                     : <></>
             }
-        </>
+        </ThemeProvider>
     )
 }

@@ -4,6 +4,9 @@ import {
     Button, Typography
 } from '@mui/material';
 
+import { ThemeProvider } from "@mui/material/styles";
+import posts_theme from "../themes/posts";
+
 export default function PostCard({
     editFunction,
     deleteFunction,
@@ -13,16 +16,14 @@ export default function PostCard({
     image_path,
     post_id }) {
     return (
-        <Card sx={{
-            minWidth: 275, backgroundColor: '#354056', color: 'white',
-            borderRadius: '2%', marginTop: '1em'
-        }}>
+        <ThemeProvider theme={posts_theme}>
+        <Card sx={{ width: '100%' }}>
 
             <CardContent>
                 <Typography variant="h5" component="div">
                     {name}
                 </Typography>
-                <Typography sx={{ mb: 1.5 }} color="#C0C8DA">
+                <Typography variant='body2' >
                     {author}
                 </Typography>
                 <Typography variant="body2">
@@ -39,5 +40,6 @@ export default function PostCard({
                 >Eliminar </Button>
             </CardActions>
         </Card>
+        </ThemeProvider>
     );
 }

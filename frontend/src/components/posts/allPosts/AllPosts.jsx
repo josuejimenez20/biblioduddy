@@ -68,9 +68,6 @@ export default function AllPosts() {
                 <h1>Posts ...</h1>
 
             }
-
-
-
         </>
     )
 }

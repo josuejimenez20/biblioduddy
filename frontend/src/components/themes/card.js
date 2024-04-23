@@ -47,7 +47,7 @@ const card = createTheme({
                     textTransform: 'none',
                     margin: '1.5rem 0rem',
                     color: '#643f38',
-                    backgroundColor: '#aaaa99',
+                    backgroundColor: '#ead9fb',
                 },
             },
         },

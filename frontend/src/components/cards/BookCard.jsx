@@ -22,7 +22,7 @@ export default function BookCard({
         <ThemeProvider theme={card}>
             <Card sx={{ maxWidth: '480px' }}>
                 <Box
-                    backgroundColor="#ccccbb"
+                    backgroundColor="#FFE6E6"
                     alignItems="center"
                     sx={{
                         border: '2px solid grey', padding: '20px'

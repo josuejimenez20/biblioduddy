@@ -3,10 +3,10 @@ import { createTheme } from '@mui/material/styles';
 const book = createTheme({
     palette: {
         primary: {
-            main: '#f0dcd8',
+            main: '#fff',
         },
         background: {
-            default: '#f0dcd8',
+            default: '#fff',
         },
     },
     typography: {
@@ -48,7 +48,6 @@ const book = createTheme({
                     height: '5rem',
                     position: 'fixed',
                     fontSize:'5vh',
-                    //fontWeight:'bold', 
                     bottom: '2rem', 
                     right: '5rem',
                     borderRadius:'100%',
