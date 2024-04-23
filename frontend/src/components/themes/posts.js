@@ -23,6 +23,7 @@ const posts_theme = createTheme({
             styleOverrides: {
                 root: {
                     margin: '0rem 2rem',
+                    padding: '2rem',
                     //width: '100% !important',  
                     height:'4rem',
                     textTransform: 'none',
