@@ -9,7 +9,7 @@ const createNewWishBookModel = async (dataBook) => {
 
     const query = `
 
-    INSERT INTO public.user_books(
+    INSERT INTO user_books(
         book_id, fk_user_id, name, author, gender, 
         publication_date, editorial, image_path)
         VALUES ('${bookId}', '${userId}', '${name}', '${author}', 
@@ -36,7 +36,7 @@ const createNewBookInListModel = async (dataBook) => {
     const query = `
 
     SELECT wish_book_list_id 
-    FROM public.wish_list_books
+    FROM wish_list_books
         WHERE fk_user_id = '${userId}';
         
         `;
@@ -48,7 +48,7 @@ const createNewBookInListModel = async (dataBook) => {
 
         const query2 = `
         
-        INSERT INTO public.wish_books(
+        INSERT INTO wish_books(
             fk_wish_list_book_id, fk_book_id)
             VALUES ('${listId}', '${bookId}');
             
@@ -70,7 +70,7 @@ const editWishBookModel = async (dataBook) => {
         image_path } = dataBook;
 
     const query = `
-    UPDATE public.user_books
+    UPDATE user_books
 	SET name='${name}', author='${author}', 
         gender='${gender}', publication_date='${publication_date}',
         editorial='${editorial}', image_path='${image_path}'
@@ -90,17 +90,18 @@ const editWishBookModel = async (dataBook) => {
 const deleteWishBookModel = async (bookId) => {
 
     const query = `
-    DELETE FROM public.wish_books cb
-	    WHERE cb.fk_book_id = '${bookId}';
-	
-    DELETE FROM public.user_books ub
+    DELETE FROM wish_books cb
+	    WHERE cb.fk_book_id = '${bookId}';`
+
+    const query2 = `DELETE FROM user_books ub
 	    WHERE ub.book_id = '${bookId}';
         
         `;
 
     try {
 
-        const result = await queryToBiblioBuddySiteDB(query);
+        await queryToBiblioBuddySiteDB(query);
+        const result = await queryToBiblioBuddySiteDB(query2);
         return result;
     } catch (error) {
         return error;

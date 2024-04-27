@@ -13,7 +13,8 @@ const createNewPostService = async (postData) => {
         postData.currentDate = currentDate;
         postData.post_id = post_id;
 
-        const result = await createNewPostModel(postData);
+        await createNewPostModel(postData);
+
         return {
             success: true,
             code: 200,
@@ -101,11 +102,12 @@ const getCurrentDate = async () => {
     const fechaActual = new Date();
 
     // Obtener los componentes de la fecha actual
-    const dia = fechaActual.getDate();
-    const mes = fechaActual.getMonth() + 1; // Los meses van de 0 a 11, por lo que sumamos 1
-    const año = fechaActual.getFullYear();
+    const year = fechaActual.getFullYear();
+    const month = (fechaActual.getMonth() + 1).toString().padStart(2, '0'); // Asegurar que el mes tenga dos dígitos
+    const day = fechaActual.getDate().toString().padStart(2, '0'); // Asegurar que el mes tenga dos dígitos
 
-    const fechaFormateada = mes + '/' + dia + '/' + año;
+    // const fechaFormateada = mes + '/' + dia + '/' + año;
+    const fechaFormateada = year + '/' + month + '/' + day;
 
     return fechaFormateada;
 }

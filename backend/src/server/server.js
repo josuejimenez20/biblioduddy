@@ -3,6 +3,8 @@ const fileUpload = require('express-fileupload');
 const cors = require('cors');
 require('dotenv').config();
 const { bibliobuddyDBConnection } = require('../database/connectionBibliobuddy');
+const { connectionBiblioBuddyMySQL, bibliobuddyDBConnectionMySQL }
+    = require('../database/connectionBibliobuddyMysqlConnect');
 
 class Server {
 
@@ -47,7 +49,7 @@ class Server {
 
     async connectPosgresSQLBiblioBuddyDB() {
         try {
-            await bibliobuddyDBConnection();
+            await bibliobuddyDBConnectionMySQL();
         } catch (error) {
             throw new Error(error);
         }
