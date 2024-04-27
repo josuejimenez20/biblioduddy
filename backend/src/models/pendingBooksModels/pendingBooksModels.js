@@ -9,7 +9,7 @@ const createNewPendingBookModel = async (dataBook) => {
 
     const query = `
 
-    INSERT INTO public.user_books(
+    INSERT INTO user_books(
         book_id, fk_user_id, name, author, gender, 
         publication_date, editorial, image_path)
         VALUES ('${bookId}', '${userId}', '${name}', '${author}', 
@@ -36,7 +36,7 @@ const createNewBookInListModel = async (dataBook) => {
     const query = `
 
     SELECT pending_book_list_id 
-    FROM public.pending_books_list
+    FROM pending_books_list
         WHERE fk_user_id = '${userId}';
         
         `;
@@ -44,11 +44,13 @@ const createNewBookInListModel = async (dataBook) => {
     try {
         const result = await queryToBiblioBuddySiteDB(query);
 
+        console.log(result);
+
         const listId = result[0].pending_book_list_id;
 
         const query2 = `
         
-        INSERT INTO public.pending_books(
+        INSERT INTO pending_books(
             fk_pending_book_list_id, fk_book_id)
             VALUES ('${listId}', '${bookId}');
             
@@ -70,7 +72,7 @@ const editPendingBookModel = async (dataBook) => {
         image_path } = dataBook;
 
     const query = `
-    UPDATE public.user_books
+    UPDATE user_books
 	SET name='${name}', author='${author}', 
         gender='${gender}', publication_date='${publication_date}',
         editorial='${editorial}', image_path='${image_path}'
@@ -90,17 +92,18 @@ const editPendingBookModel = async (dataBook) => {
 const deletePendingBookModel = async (bookId) => {
 
     const query = `
-    DELETE FROM public.pending_books cb
-	    WHERE cb.fk_book_id = '${bookId}';
-	
-    DELETE FROM public.user_books ub
+    DELETE FROM pending_books cb
+	    WHERE cb.fk_book_id = '${bookId}';`
+
+    const query2 = `DELETE FROM user_books ub
 	    WHERE ub.book_id = '${bookId}';
         
         `;
 
     try {
 
-        const result = await queryToBiblioBuddySiteDB(query);
+        await queryToBiblioBuddySiteDB(query);
+        const result = await queryToBiblioBuddySiteDB(query2);
         return result;
     } catch (error) {
         return error;

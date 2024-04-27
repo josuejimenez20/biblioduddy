@@ -5,13 +5,9 @@ const createNewPostModel = async (userData) => {
     const { post_id, user_id,
         title, content, currentDate } = userData;
 
-    console.log(content);
-
     const query = `
     
-    BEGIN; 
-
-    INSERT INTO public.post(
+    INSERT INTO post(
         post_id, fk_user_id, title, content, publish_date, autor_name)
         VALUES ('${post_id}', '${user_id}', '${title}', '${content}', '${currentDate}', (
             SELECT CONCAT(name, ' ', lastname)
@@ -19,11 +15,9 @@ const createNewPostModel = async (userData) => {
             WHERE fk_user_id = '${user_id}'
             LIMIT 1
         ));
-    
-    COMMIT;`;
+    `;
 
     try {
-        
         const result = await queryToBiblioBuddySiteDB(query);
         return result;
     } catch (error) {
@@ -37,7 +31,7 @@ const updatePostModel = async (postData) => {
 
     const query = `
     
-    UPDATE public.post
+    UPDATE post
 	SET title='${title}', content='${content}'
 	WHERE post_id = '${post_id}';`;
 
