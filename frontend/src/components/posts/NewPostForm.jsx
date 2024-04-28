@@ -21,18 +21,18 @@ export default function NewPostForm({
             >
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
-                        <TextField id="title" title="Titulo" fullWidth
+                        <TextField color="secondary" id="title" title="Titulo" fullWidth
                             label="Titulo" variant="outlined" defaultValue={title}
                         />
                     </Grid>
                     <Grid item xs={12}>
-                        <TextField
-                            id="content" name="content" fullWidth
+                        <TextField color="secondary" rows={9}
+                            id="content" name="content" fullWidth multiline="true"
                             label="Contenido" variant="outlined" defaultValue={content} />
                     </Grid>
 
                     <Grid item xs={12}>
-                        <TextField id="image_path" name="image_path"
+                        <TextField color="secondary" id="image_path" name="image_path"
                             fullWidth label="Imagen" variant="outlined" defaultValue={image_path} />
                     </Grid>
 
