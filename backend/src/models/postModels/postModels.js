@@ -79,8 +79,18 @@ const getPostByIdModel = async (postId) => {
     SELECT * 
     FROM post
     WHERE post_id = '${postId}'`;
+
+    const query2 = `
+    SELECT *, (SELECT name FROM user_information WHERE fk_user_id = com.fk_user_id) userName,
+            (SELECT lastname FROM user_information WHERE fk_user_id = com.fk_user_id) userLastName
+    FROM comment AS com
+    WHERE com.fk_post_id = "${postId}";`;
+
     try {
         const result = await queryToBiblioBuddySiteDB(query);
+        const comments = await queryToBiblioBuddySiteDB(query2);
+
+        result[0].comments = comments;
 
         return result;
 

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import {
     Typography, Divider,
-    Stack
+    Stack, Card
 } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { getPostById } from '../../redux/actions/posts/getPostById';
 import { TextoConSaltosDeLinea } from '../../helpers/text/NewContent';
+import NewComment from '../comments/NewComment';
+import CardComment from '../comments/CardComment';
 
 export default function ViewContentPost() {
 
@@ -20,8 +22,6 @@ export default function ViewContentPost() {
         try {
             const result = await getPostById(postId);
             setPostData(result);
-
-
 
         } catch (error) {
             setPostError("Error al obtener la informacion del post");
@@ -52,7 +52,7 @@ export default function ViewContentPost() {
                                 {postData.autor_name}
                             </Typography>
                             <Typography variant='h5'>
-                            {postData.publish_date.slice(0, 10)}
+                                {postData.publish_date.slice(0, 10)}
                             </Typography>
                         </Stack>
 
@@ -61,6 +61,18 @@ export default function ViewContentPost() {
                         <Typography marginTop={4} variant='body1'>
                             {postTitle}
                         </Typography>
+
+                        <Divider sx={{ marginTop: '2em' }} />
+                        <NewComment postId={postId} callBack={getPostContent} />
+
+                        {postData.comments.map((element, index) => {
+                            return <CardComment
+                                key={index}
+                                userName={element.userName}
+                                userLastName={element.userLastName}
+                                comment={element.comment}
+                            />
+                        })}
                     </>
                     : <></>
 
