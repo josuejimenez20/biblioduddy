@@ -18,6 +18,7 @@ import NePost from '../../components/posts/NewPost';
 import EditPost from '../../components/posts/EditPost';
 import AllPosts from '../../components/posts/allPosts/AllPosts';
 import ViewContentPost from '../../components/posts/ViewContentPost';
+import FindBook from '../../components/findBook/FindBook';
 
 export default function HomeRoutes() {
     return (
@@ -42,6 +43,7 @@ export default function HomeRoutes() {
             <Route path='/editpost/:postId' element={<EditPost />} />
             <Route path='/post/all' element={<AllPosts />} />
             <Route path='/post/:postId' element={<ViewContentPost />} />
+            <Route path='/findbook' element={<FindBook />} />
 
 
         </Routes>

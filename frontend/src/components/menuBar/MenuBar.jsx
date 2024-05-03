@@ -23,7 +23,7 @@ export default function MenuBar() {
                             navigate('/Home')
                         }}/>
                 <div>
-                    <Button id='getBooks' onClick={() => navigate('/Books')}>Consigue tus libros</Button>
+                    <Button id='getBooks' onClick={() => navigate('/Home/findbook')}>Consigue tus libros</Button>
                     <Button onClick={signOut}>Cerrar Sesión</Button>
                 </div>
             </Container>
