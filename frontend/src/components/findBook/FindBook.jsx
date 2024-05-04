@@ -12,10 +12,10 @@ export default function FindBook() {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearch = async () => {
-    console.log(searchQuery);
     try {
       const result = await findBooksByName(searchQuery);
-      // setBooks(result);
+      console.log(result);
+      setBooks(result);
     } catch (error) {
       setErrorBooks(errorBooks);
     }
@@ -64,13 +64,19 @@ export default function FindBook() {
           <span>&#128269;</span>
         </IconButton>
       </Paper>
-      <CardBook
-        title="Habitos Atomicos"
-        author="Pablo Axel"
-        description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia ipsum repellat delectus sunt consequatur consectetur aliquid quam ducimus ullam enim quae doloribus sapiente, doloremque nemo eligendi aliquam a magnam eum!"
-        buyLink="https://gemini.google.com/app/2599b7f66ea6fc1d"
-        imagePath="http://books.google.com/books/content?id=j7O9EAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"
-      />
+
+      {books !== null ?
+        books.map((element, index) => {
+          return <CardBook
+            key={index}
+            title={element.volumeInfo.title}
+            author={element.volumeInfo.authors[0]}
+            buyLink={element.saleInfo.buyLink}
+            description={element.volumeInfo.description}
+            imagePath={element.volumeInfo.imageLinks.smallThumbnail}
+          />
+        })
+        : <></>}
     </>
   );
 }

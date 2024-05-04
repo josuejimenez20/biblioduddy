@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import {
     Container, Stack,
     TextField, Button,
-    Typography, Link
+    Typography, Link,
+    Alert
 } from '@mui/material';
 import { LoginUser as LoginUserAction } from '../../redux/actions/LoginUser';
 import { createNewData } from '../../helpers/localstorage/createNewData';
@@ -37,31 +38,37 @@ export default function LoginUser() {
 
     return (
         <ThemeProvider theme={theme}>
-        <Container className="container">
-            
-            <Typography variant="h3" className="title">
-                Iniciar Sesión
-            </Typography>
+            <Container className="container">
 
-            <form id="login_form" className="form_class" method="submit"
-                onSubmit={(e) => {
-                    e.preventDefault()
-                    handleLoginSubmit(e)
-                }}>
-                <Stack >
+                <Typography variant="h3" className="title">
+                    Iniciar Sesión
+                </Typography>
 
-                    <TextField id='email' name='email' label='Email' color='secondary'
-                        variant='standard' className="textField" />
-                    <TextField id='password' name='password' color='secondary'
-                        label='Contraseña' variant='standard' type='password'/>
-                    <Button type='submit' variant='standard' className="button">Enviar</Button>
-                    <Link mb={3}
-                        onClick={() => {
-                            navigate('/Login/Register')
-                        }}>Registrarme</Link>
-                </Stack>
-            </form>
-        </Container>
+                {error ? <Alert severity="error" sx={{marginBottom: '2em'}}>
+                    Ususario no encontrado
+                </Alert>
+                    : <></>}
+
+
+                <form id="login_form" className="form_class" method="submit"
+                    onSubmit={(e) => {
+                        e.preventDefault()
+                        handleLoginSubmit(e)
+                    }}>
+                    <Stack >
+
+                        <TextField id='email' name='email' label='Email' color='secondary'
+                            variant='standard' className="textField" />
+                        <TextField id='password' name='password' color='secondary'
+                            label='Contraseña' variant='standard' type='password' />
+                        <Button type='submit' variant='standard' className="button">Enviar</Button>
+                        <Link mb={3}
+                            onClick={() => {
+                                navigate('/Login/Register')
+                            }}>Registrarme</Link>
+                    </Stack>
+                </form>
+            </Container>
         </ThemeProvider>
     )
 }
