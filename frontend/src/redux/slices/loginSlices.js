@@ -23,7 +23,7 @@ export const loginSlice = createSlice({
             state.userData = action.payload;
         },
         fetchLoginFailure: (state, action) => {
-            state.error = action.payload;
+            state.error = true;
             state.loading = false;
             state.success = false;
         }
