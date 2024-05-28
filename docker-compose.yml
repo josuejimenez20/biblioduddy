@@ -1,0 +1,49 @@
+version: '3.8'
+networks:
+  bibliobuddy-net2:
+
+services:
+  my-db:
+    networks:
+      - bibliobuddy-net2
+    build: 
+      context: ./database
+      dockerfile: Dockerfile
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 10s
+      retries: 25
+
+  my-node-app:
+    depends_on:
+      my-db:
+        condition: service_healthy
+    networks:
+      - bibliobuddy-net2
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/app
+    ports:
+      - 3000:3000
+    environment:
+      DATABASE: bibliobuddy
+      DATABASE_HOST: my-db
+      DATABASE_USER: root
+      DATABASE_PASSWORD: root
+      DATABASE_PORT: 3306
+
+  my-react-app:
+    depends_on:
+      - my-node-app
+    ports:
+      - 5173:5173
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    # volumes:
+    #   - ./frontend:/app

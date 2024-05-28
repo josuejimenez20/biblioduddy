@@ -4,12 +4,14 @@ import {
     fetchEditBookSuccess,
     fetchEditBookFailure
 } from "../../slices/currentlyBooks/editBookSlice";
+import { BIBLIOBUDDY_ENV } from '../test_env';
+
 
 export const editCurrentlyBook = (bookData) => async (dispatch) => {
 
     try {
         dispatch(fetchEditBook());
-        const { data, status } = await axios.post(`http://localhost:3000/api/v1/currenlty/edit`, bookData);
+        const { data, status } = await axios.post(`${BIBLIOBUDDY_ENV}currenlty/edit`, bookData);
 
         if (status === 200) {
             return dispatch(fetchEditBookSuccess(true));

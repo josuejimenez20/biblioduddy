@@ -1,10 +1,11 @@
 import axios from 'axios';
+import { BIBLIOBUDDY_ENV } from '../test_env';
 
 export const editMyPost = async (postData) => {
 
     try {
 
-        const result = await axios.post(`http://localhost:3000/api/v1/post/update`, postData);
+        const result = await axios.post(`${BIBLIOBUDDY_ENV}post/update`, postData);
         
         return result
 

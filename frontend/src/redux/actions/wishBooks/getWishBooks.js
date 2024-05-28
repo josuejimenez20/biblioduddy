@@ -4,12 +4,13 @@ import {
     fetchgetBooksSuccess,
     fetchgetBooks
 } from "../../slices/wishBooks/getBookSlice";
+import { BIBLIOBUDDY_ENV } from '../test_env';
 
 export const getWishBooks = (userId) => async (dispatch) => {
 
     try {
         dispatch(fetchgetBooks());
-        const { data, status } = await axios.get(`http://localhost:3000/api/v1/wish/${userId}`);
+        const { data, status } = await axios.get(`${BIBLIOBUDDY_ENV}wish/${userId}`);
 
         if (status === 200) {
             return dispatch(fetchgetBooksSuccess(data.data));

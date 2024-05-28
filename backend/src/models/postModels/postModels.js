@@ -47,15 +47,22 @@ const updatePostModel = async (postData) => {
 
 const deletePostModel = async (postId) => {
 
+    const query2 = `
+    DELETE FROM comment
+	WHERE fk_post_id = '${postId}';
+    `;
+
     const query = `
     DELETE FROM post
 	WHERE post_id = '${postId}';`;
     try {
+        await queryToBiblioBuddySiteDB(query2);
         const result = await queryToBiblioBuddySiteDB(query);
 
         return result;
 
     } catch (error) {
+        console.log(error);
         return error;
     }
 }

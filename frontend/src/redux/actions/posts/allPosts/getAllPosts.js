@@ -1,10 +1,11 @@
 import axios from 'axios';
+import { BIBLIOBUDDY_ENV } from '../../test_env';
 
 export const getAllPostsAction = async () => {
 
     try {
 
-        const { data } = await axios.get(`http://localhost:3000/api/v1/post/all`);
+        const { data } = await axios.get(`${BIBLIOBUDDY_ENV}post/all`);
 
         return data.posts
 

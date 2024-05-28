@@ -2,9 +2,7 @@ const express = require('express');
 const fileUpload = require('express-fileupload');
 const cors = require('cors');
 require('dotenv').config();
-const { bibliobuddyDBConnection } = require('../database/connectionBibliobuddy');
-const { connectionBiblioBuddyMySQL, bibliobuddyDBConnectionMySQL }
-    = require('../database/connectionBibliobuddyMysqlConnect');
+const { bibliobuddyDBConnectionMySQL } = require('../database/connectionBibliobuddyMysqlConnect');
 
 class Server {
 
@@ -13,7 +11,7 @@ class Server {
         this.port = process.env.PORT || 3000;
         this.principalPath = "/api/v1"
         this.corsOptions = {
-            origin: "http://localhost:5173",
+            origin: "*",
             optionsSuccessStatus: 200
         }
 

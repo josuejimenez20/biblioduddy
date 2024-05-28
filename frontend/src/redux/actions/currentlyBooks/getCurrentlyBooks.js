@@ -4,12 +4,14 @@ import {
     fetchgetBooksSuccess,
     fetchgetBooks
 } from "../../slices/currentlyBooks/getBooksSlices";
+import { BIBLIOBUDDY_ENV } from '../test_env';
+
 
 export const getCurrentlyBooks = (userId) => async (dispatch) => {
 
     try {
         dispatch(fetchgetBooks());
-        const { data, status } = await axios.get(`http://localhost:3000/api/v1/currenlty/${userId}`);
+        const { data, status } = await axios.get(`${BIBLIOBUDDY_ENV}currenlty/${userId}`);
 
         if (status === 200) {
             return dispatch(fetchgetBooksSuccess(data.data));

@@ -50,7 +50,7 @@ const deletePostService = async (postId) => {
         return { code: 200, message: 'Post eliminado' }
 
     } catch (error) {
-
+        return error;
     }
 }
 

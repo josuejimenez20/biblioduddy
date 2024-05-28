@@ -1,10 +1,12 @@
 import axios from 'axios';
+import { BIBLIOBUDDY_ENV } from '../test_env';
+
 
 export const deletMyPost = async (postId) => {
 
     try {
 
-        const result = await axios.delete(`http://localhost:3000/api/v1/post/${postId}`);
+        const result = await axios.delete(`${BIBLIOBUDDY_ENV}post/${postId}`);
 
         return result
 
